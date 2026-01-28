@@ -1,0 +1,27 @@
+# Supabase Configuration for CCG Platform
+
+project_id = "qfcogleudwbmocuygsut"
+
+# Edge Functions Configuration
+# JWT verification enabled for security - all functions require auth
+
+[functions.triage-assistant]
+verify_jwt = true
+
+[functions.triage-analytics]
+verify_jwt = true
+
+[functions.wikimedia-search]
+verify_jwt = true
+
+[functions.web-image-search]
+verify_jwt = true
+
+[functions.image-proxy]
+verify_jwt = false  # Public image proxy
+
+[functions.photo-discovery]
+verify_jwt = true
+
+[functions.photo-import]
+verify_jwt = true

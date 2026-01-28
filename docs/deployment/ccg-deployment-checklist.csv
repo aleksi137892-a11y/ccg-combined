@@ -1,0 +1,56 @@
+Section,Task,Priority,Notes
+Supabase Setup,Install Supabase CLI: npm install -g supabase,High,One-time setup
+Supabase Setup,Login to Supabase CLI: npx supabase login,High,Opens browser for OAuth
+Supabase Setup,Link project: npx supabase link --project-ref qfcogleudwbmocuygsut,High,Enter database password when prompted
+Supabase Setup,Apply migrations: npx supabase db push,High,Applies security fixes
+Supabase Setup,Deploy edge function: triage-assistant,High,AI triage chat
+Supabase Setup,Deploy edge function: triage-analytics,Medium,Analytics logging
+Supabase Setup,Deploy edge function: wikimedia-search,Medium,Image search
+Supabase Setup,Deploy edge function: web-image-search,Medium,Firecrawl image search
+Supabase Setup,Deploy edge function: image-proxy,High,Image caching (public)
+Supabase Setup,Deploy edge function: photo-discovery,Medium,Photo discovery
+Supabase Setup,Deploy edge function: photo-import,Medium,Photo import
+Supabase Setup,Set secret: npx supabase secrets set LOVABLE_API_KEY=xxx,Medium,For triage-assistant
+Supabase Setup,Set secret: npx supabase secrets set FIRECRAWL_API_KEY=xxx,Low,For web-image-search
+Supabase Setup,Copy SUPABASE_URL from dashboard,High,Settings > API > Project URL
+Supabase Setup,Copy SUPABASE_ANON_KEY from dashboard,High,Settings > API > anon key
+Vercel Main Site,Go to vercel.com/new and import ccg-combined repo,High,GitHub integration
+Vercel Main Site,Set root directory: apps/main-site,High,Critical setting
+Vercel Main Site,Set framework preset: Vite,High,Auto-detected usually
+Vercel Main Site,Set build command: cd ../.. && npm install && cd apps/main-site && ../../node_modules/.bin/vite build,High,Exact command required
+Vercel Main Site,Set output directory: dist,High,Default for Vite
+Vercel Main Site,Add env var: VITE_SUPABASE_URL,High,From Supabase dashboard
+Vercel Main Site,Add env var: VITE_SUPABASE_ANON_KEY,High,From Supabase dashboard
+Vercel Main Site,Add env var: VITE_SITE_PASSWORD (Preview only),Medium,Staging password gate
+Vercel Main Site,Trigger first deployment,High,Click Deploy
+Vercel Main Site,Verify site loads at preview URL,High,Test before domain
+Vercel Main Site,Configure custom domain: sabcho.org,Medium,Settings > Domains
+Vercel Main Site,Verify SSL certificate active,Medium,Auto-provisioned by Vercel
+Vercel IIMG Portal,Create second Vercel project for IIMG,High,Separate project
+Vercel IIMG Portal,Set root directory: apps/iimg-portal,High,Critical setting
+Vercel IIMG Portal,Set build command: cd ../.. && npm install && cd apps/iimg-portal && ../../node_modules/.bin/vite build,High,Exact command required
+Vercel IIMG Portal,Add env var: VITE_SUPABASE_URL,High,Same as main site
+Vercel IIMG Portal,Add env var: VITE_SUPABASE_ANON_KEY,High,Same as main site
+Vercel IIMG Portal,Trigger first deployment,High,Click Deploy
+Vercel IIMG Portal,Verify portal loads correctly,High,Test PWA features
+Vercel IIMG Portal,Configure custom domain: iimg.sabcho.org,Medium,Settings > Domains
+API Configuration,Verify Supabase project is active,High,Check dashboard status
+API Configuration,Test edge function: /functions/v1/image-proxy,High,Should return images
+API Configuration,Verify CORS allows production domains,High,sabcho.org in allowed list
+API Configuration,Test form submission end-to-end,High,Submit test appeal
+API Configuration,Verify triage assistant responds,Medium,Test chat interface
+Post-Deployment,Main site: Homepage loads,High,First visual check
+Post-Deployment,Main site: Navigation works,High,Click all nav items
+Post-Deployment,Main site: Justice page loads,High,Lazy-loaded page
+Post-Deployment,Main site: TheList page loads,Medium,Large data page
+Post-Deployment,Main site: Footer links work,Medium,All internal links
+Post-Deployment,IIMG: Homepage loads,High,Portal entry
+Post-Deployment,IIMG: PWA manifest loads,Medium,Check dev tools
+Post-Deployment,IIMG: Intake forms functional,High,Core functionality
+Post-Deployment,Both: Mobile responsive,High,Test on phone
+Post-Deployment,Both: Georgian language toggle works,High,Click language switcher
+DNS Configuration,Add A record for apex domain (sabcho.org),Medium,Vercel IP address
+DNS Configuration,Add CNAME for www subdomain,Medium,cname.vercel-dns.com
+DNS Configuration,Add CNAME for iimg subdomain,Medium,cname.vercel-dns.com
+DNS Configuration,Verify DNS propagation,Low,Can take 24-48h
+DNS Configuration,Verify HTTPS on all domains,High,Should auto-provision

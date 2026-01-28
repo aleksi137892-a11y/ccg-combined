@@ -1,0 +1,238 @@
+CCG PLATFORM DEPLOYMENT CHECKLIST
+==================================
+
+GitHub Repo: aleksi137892-a11y/ccg-combined
+Supabase Project: qfcogleudwbmocuygsut
+
+
+SECTION 1: SUPABASE SETUP
+-------------------------
+
+[ ] Install Supabase CLI
+    Command: npm install -g supabase
+
+[ ] Login to Supabase CLI
+    Command: npx supabase login
+    Note: Opens browser for OAuth
+
+[ ] Link to project
+    Command: npx supabase link --project-ref qfcogleudwbmocuygsut
+    Note: Enter database password when prompted
+
+[ ] Apply database migrations
+    Command: npx supabase db push
+    Note: Applies security fixes for RLS policies
+
+[ ] Deploy edge function: triage-assistant
+    Command: npx supabase functions deploy triage-assistant
+
+[ ] Deploy edge function: triage-analytics
+    Command: npx supabase functions deploy triage-analytics
+
+[ ] Deploy edge function: wikimedia-search
+    Command: npx supabase functions deploy wikimedia-search
+
+[ ] Deploy edge function: web-image-search
+    Command: npx supabase functions deploy web-image-search
+
+[ ] Deploy edge function: image-proxy
+    Command: npx supabase functions deploy image-proxy
+
+[ ] Deploy edge function: photo-discovery
+    Command: npx supabase functions deploy photo-discovery
+
+[ ] Deploy edge function: photo-import
+    Command: npx supabase functions deploy photo-import
+
+[ ] Set secret: LOVABLE_API_KEY
+    Command: npx supabase secrets set LOVABLE_API_KEY=your_key
+    Note: For triage-assistant AI
+
+[ ] Set secret: FIRECRAWL_API_KEY
+    Command: npx supabase secrets set FIRECRAWL_API_KEY=your_key
+    Note: For web-image-search (optional)
+
+[ ] Copy SUPABASE_URL
+    Location: Dashboard > Settings > API > Project URL
+    Example: https://qfcogleudwbmocuygsut.supabase.co
+
+[ ] Copy SUPABASE_ANON_KEY
+    Location: Dashboard > Settings > API > anon/public key
+    Note: Save for Vercel environment variables
+
+
+SECTION 2: VERCEL MAIN SITE
+---------------------------
+
+[ ] Import repository to Vercel
+    URL: https://vercel.com/new
+    Repo: aleksi137892-a11y/ccg-combined
+
+[ ] Set root directory
+    Value: apps/main-site
+
+[ ] Set framework preset
+    Value: Vite
+
+[ ] Set build command
+    Value: cd ../.. && npm install && cd apps/main-site && ../../node_modules/.bin/vite build
+
+[ ] Set output directory
+    Value: dist
+
+[ ] Add environment variable: VITE_SUPABASE_URL
+    Value: https://qfcogleudwbmocuygsut.supabase.co
+    Scope: All environments
+
+[ ] Add environment variable: VITE_SUPABASE_ANON_KEY
+    Value: (your anon key from Supabase)
+    Scope: All environments
+
+[ ] Add environment variable: VITE_SITE_PASSWORD
+    Value: (your staging password)
+    Scope: Preview only (NOT production)
+
+[ ] Trigger first deployment
+    Action: Click Deploy button
+
+[ ] Verify site loads at preview URL
+    Check: Homepage renders correctly
+
+[ ] Configure custom domain: sabcho.org
+    Location: Project Settings > Domains
+
+[ ] Verify SSL certificate
+    Check: HTTPS works, certificate auto-provisioned
+
+
+SECTION 3: VERCEL IIMG PORTAL
+-----------------------------
+
+[ ] Create second Vercel project
+    URL: https://vercel.com/new
+    Note: Same repo, different settings
+
+[ ] Set root directory
+    Value: apps/iimg-portal
+
+[ ] Set build command
+    Value: cd ../.. && npm install && cd apps/iimg-portal && ../../node_modules/.bin/vite build
+
+[ ] Add environment variable: VITE_SUPABASE_URL
+    Value: (same as main site)
+
+[ ] Add environment variable: VITE_SUPABASE_ANON_KEY
+    Value: (same as main site)
+
+[ ] Trigger first deployment
+    Action: Click Deploy button
+
+[ ] Verify portal loads correctly
+    Check: Homepage and PWA features work
+
+[ ] Configure custom domain: iimg.sabcho.org
+    Location: Project Settings > Domains
+
+
+SECTION 4: API VERIFICATION
+---------------------------
+
+[ ] Verify Supabase project status
+    Check: Dashboard shows project is active
+
+[ ] Test image-proxy endpoint
+    URL: https://qfcogleudwbmocuygsut.supabase.co/functions/v1/image-proxy
+    Check: Returns valid response
+
+[ ] Verify CORS configuration
+    Check: Production domains in allowed origins
+
+[ ] Test form submission
+    Action: Submit test appeal on main site
+    Check: Data appears in Supabase
+
+[ ] Test triage assistant (if configured)
+    Action: Start chat interaction
+    Check: AI responds appropriately
+
+
+SECTION 5: POST-DEPLOYMENT VERIFICATION
+---------------------------------------
+
+MAIN SITE:
+[ ] Homepage loads correctly
+[ ] Navigation menu works
+[ ] Justice page loads (lazy-loaded)
+[ ] TheList page loads (large data)
+[ ] Footer links all work
+[ ] Mobile layout responsive
+
+IIMG PORTAL:
+[ ] Homepage loads correctly
+[ ] PWA manifest detected
+[ ] Intake forms functional
+[ ] Mobile layout responsive
+
+BOTH SITES:
+[ ] Georgian language toggle works
+[ ] All images load (proxy working)
+[ ] No console errors
+
+
+SECTION 6: DNS CONFIGURATION
+----------------------------
+
+[ ] Add A record for sabcho.org
+    Value: 76.76.21.21 (Vercel IP)
+
+[ ] Add CNAME for www.sabcho.org
+    Value: cname.vercel-dns.com
+
+[ ] Add CNAME for iimg.sabcho.org
+    Value: cname.vercel-dns.com
+
+[ ] Wait for DNS propagation
+    Note: Can take up to 48 hours
+
+[ ] Verify HTTPS on all domains
+    Check: Certificates auto-provisioned
+
+
+REFERENCE INFORMATION
+---------------------
+
+Build Commands:
+  Main Site: cd ../.. && npm install && cd apps/main-site && ../../node_modules/.bin/vite build
+  IIMG Portal: cd ../.. && npm install && cd apps/iimg-portal && ../../node_modules/.bin/vite build
+
+Edge Functions (7 total):
+  1. triage-assistant (JWT required)
+  2. triage-analytics (JWT required)
+  3. wikimedia-search (JWT required)
+  4. web-image-search (JWT required)
+  5. image-proxy (public)
+  6. photo-discovery (JWT required)
+  7. photo-import (JWT required)
+
+Environment Variables:
+  VITE_SUPABASE_URL - Supabase project URL
+  VITE_SUPABASE_ANON_KEY - Supabase anon key
+  VITE_SITE_PASSWORD - Staging password (preview only)
+
+Supabase Secrets:
+  LOVABLE_API_KEY - For AI triage
+  FIRECRAWL_API_KEY - For web image search
+
+
+QUICK DEPLOY COMMANDS
+---------------------
+
+# Supabase (from project root)
+npx supabase login
+npx supabase link --project-ref qfcogleudwbmocuygsut
+npx supabase db push
+npx supabase functions deploy
+
+# Local development
+cd apps/main-site
+npm run dev

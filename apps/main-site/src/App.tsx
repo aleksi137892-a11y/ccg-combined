@@ -1,3 +1,4 @@
+import { Suspense, lazy } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -8,7 +9,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import CookieConsent from "@/components/CookieConsent";
 import PasswordGate from "@/components/PasswordGate";
 
-// Layouts
+// Layouts - keep synchronous as they're needed for page structure
 import {
   AppealLayout,
   RecordLayout,
@@ -18,71 +19,85 @@ import {
   AboutLayout,
 } from "@/layouts/SectionLayout";
 
-// Section Index Pages
-import AppealIndex from "./pages/appeal/AppealIndex";
-import RecordIndex from "./pages/record/RecordIndex";
-import RemedyIndex from "./pages/remedy/RemedyIndex";
+// Loading fallback for lazy-loaded pages
+const PageLoader = () => (
+  <div className="min-h-screen flex items-center justify-center bg-background">
+    <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+  </div>
+);
 
-// Page imports
+// =============================================================================
+// LAZY-LOADED PAGES (Code Splitting)
+// Heavy pages are loaded on-demand to reduce initial bundle size
+// =============================================================================
+
+// Core pages - loaded immediately as they're frequently accessed
 import Index from "./pages/Index";
-import Justice from "./pages/Justice";
-import ForumFaq from "./pages/ForumFaq";
-import Mandate from "./pages/Mandate";
-import Mission from "./pages/Mission";
-import About from "./pages/About";
-import Leadership from "./pages/Leadership";
-import Contact from "./pages/Contact";
-import SolidarityPledge from "./pages/SolidarityPledge";
 import NotFound from "./pages/NotFound";
-import ComplicityIndex from "./pages/ComplicityIndex";
-import TheList from "./pages/TheList";
-import SubmitPetition from "./pages/SubmitPetition";
-import HarmIntake from "./pages/appeal/HarmIntake";
-import WrongdoingIntake from "./pages/appeal/WrongdoingIntake";
-import InsideIntake from "./pages/appeal/InsideIntake";
-import AppealsTriage from "./pages/admin/AppealsTriage";
-import SecureChannel from "./pages/SecureChannel";
-import Safety from "./pages/Safety";
-import SourceProtection from "./pages/SourceProtection";
-import JusticeDocket from "./pages/JusticeDocket";
-import DossierDesk from "./pages/DossierDesk";
-import IIMGeorgia from "./pages/IIMGeorgia";
-import InternationalPathways from "./pages/InternationalPathways";
-import StrategicLitigation from "./pages/remedy/StrategicLitigation";
-import InternationalMechanisms from "./pages/remedy/InternationalMechanisms";
-import OffRamp from "./pages/OffRamp";
-import Compliance from "./pages/Compliance";
-import Sanctions from "./pages/Sanctions";
-import CaptureMap from "./pages/CaptureMap";
-import Investigations from "./pages/Investigations";
-import Engine from "./pages/Engine";
-import Report from "./pages/Report";
-import Evidence from "./pages/Evidence";
-import Rustaveli from "./pages/Rustaveli";
-import Canon from "./pages/Canon";
-import Dignity from "./pages/Dignity";
-import Heritage from "./pages/Heritage";
-import Standards from "./pages/Standards";
-import Methodology from "./pages/Methodology";
-import RightOfReply from "./pages/RightOfReply";
-import Corrections from "./pages/Corrections";
-import Transparency from "./pages/Transparency";
-import Funding from "./pages/Funding";
-import Governance from "./pages/Governance";
-import Advisory from "./pages/Advisory";
-import Press from "./pages/Press";
-import Privacy from "./pages/Privacy";
-import Terms from "./pages/Terms";
-import Cookies from "./pages/Cookies";
-import Accessibility from "./pages/Accessibility";
-import ReportError from "./pages/ReportError";
-import Faq from "./pages/Faq";
-import Charter from "./pages/Charter";
-import Search from "./pages/Search";
-import Sitemap from "./pages/Sitemap";
-import CivicNecessity from "./pages/CivicNecessity";
-import RightToRemedy from "./pages/RightToRemedy";
-import ComplicityLedger from "./pages/ComplicityLedger";
+
+// Lazy-loaded pages - loaded on-demand
+const Justice = lazy(() => import("./pages/Justice"));
+const ForumFaq = lazy(() => import("./pages/ForumFaq"));
+const Mandate = lazy(() => import("./pages/Mandate"));
+const Mission = lazy(() => import("./pages/Mission"));
+const About = lazy(() => import("./pages/About"));
+const Leadership = lazy(() => import("./pages/Leadership"));
+const Contact = lazy(() => import("./pages/Contact"));
+const SolidarityPledge = lazy(() => import("./pages/SolidarityPledge"));
+const ComplicityIndex = lazy(() => import("./pages/ComplicityIndex"));
+const TheList = lazy(() => import("./pages/TheList"));
+const SubmitPetition = lazy(() => import("./pages/SubmitPetition"));
+const SecureChannel = lazy(() => import("./pages/SecureChannel"));
+const Safety = lazy(() => import("./pages/Safety"));
+const SourceProtection = lazy(() => import("./pages/SourceProtection"));
+const JusticeDocket = lazy(() => import("./pages/JusticeDocket"));
+const DossierDesk = lazy(() => import("./pages/DossierDesk"));
+const IIMGeorgia = lazy(() => import("./pages/IIMGeorgia"));
+const InternationalPathways = lazy(() => import("./pages/InternationalPathways"));
+const OffRamp = lazy(() => import("./pages/OffRamp"));
+const Compliance = lazy(() => import("./pages/Compliance"));
+const Sanctions = lazy(() => import("./pages/Sanctions"));
+const CaptureMap = lazy(() => import("./pages/CaptureMap"));
+const Investigations = lazy(() => import("./pages/Investigations"));
+const Engine = lazy(() => import("./pages/Engine"));
+const Report = lazy(() => import("./pages/Report"));
+const Evidence = lazy(() => import("./pages/Evidence"));
+const Rustaveli = lazy(() => import("./pages/Rustaveli"));
+const Canon = lazy(() => import("./pages/Canon"));
+const Dignity = lazy(() => import("./pages/Dignity"));
+const Heritage = lazy(() => import("./pages/Heritage"));
+const Standards = lazy(() => import("./pages/Standards"));
+const Methodology = lazy(() => import("./pages/Methodology"));
+const RightOfReply = lazy(() => import("./pages/RightOfReply"));
+const Corrections = lazy(() => import("./pages/Corrections"));
+const Transparency = lazy(() => import("./pages/Transparency"));
+const Funding = lazy(() => import("./pages/Funding"));
+const Governance = lazy(() => import("./pages/Governance"));
+const Advisory = lazy(() => import("./pages/Advisory"));
+const Press = lazy(() => import("./pages/Press"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
+const Cookies = lazy(() => import("./pages/Cookies"));
+const Accessibility = lazy(() => import("./pages/Accessibility"));
+const ReportError = lazy(() => import("./pages/ReportError"));
+const Faq = lazy(() => import("./pages/Faq"));
+const Charter = lazy(() => import("./pages/Charter"));
+const Search = lazy(() => import("./pages/Search"));
+const Sitemap = lazy(() => import("./pages/Sitemap"));
+const CivicNecessity = lazy(() => import("./pages/CivicNecessity"));
+const RightToRemedy = lazy(() => import("./pages/RightToRemedy"));
+const ComplicityLedger = lazy(() => import("./pages/ComplicityLedger"));
+
+// Section Index Pages
+const AppealIndex = lazy(() => import("./pages/appeal/AppealIndex"));
+const RecordIndex = lazy(() => import("./pages/record/RecordIndex"));
+const RemedyIndex = lazy(() => import("./pages/remedy/RemedyIndex"));
+const HarmIntake = lazy(() => import("./pages/appeal/HarmIntake"));
+const WrongdoingIntake = lazy(() => import("./pages/appeal/WrongdoingIntake"));
+const InsideIntake = lazy(() => import("./pages/appeal/InsideIntake"));
+const AppealsTriage = lazy(() => import("./pages/admin/AppealsTriage"));
+const StrategicLitigation = lazy(() => import("./pages/remedy/StrategicLitigation"));
+const InternationalMechanisms = lazy(() => import("./pages/remedy/InternationalMechanisms"));
 
 const queryClient = new QueryClient();
 
@@ -255,16 +270,18 @@ const AppRoutes = () => (
     <Toaster />
     <Sonner />
     <CookieConsent />
-    <Routes>
-      {/* English routes */}
-      {createRoutes('')}
-      
-      {/* Georgian routes - same structure with /ge prefix */}
-      {createRoutes('/ge')}
+    <Suspense fallback={<PageLoader />}>
+      <Routes>
+        {/* English routes */}
+        {createRoutes('')}
+        
+        {/* Georgian routes - same structure with /ge prefix */}
+        {createRoutes('/ge')}
 
-      {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Suspense>
   </LanguageProvider>
 );
 

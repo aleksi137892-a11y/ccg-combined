@@ -137,7 +137,7 @@ export function ForumPipelineDiagram({ className }: ForumPipelineDiagramProps) {
                   <div className="p-6 pt-8">
                     {/* Title */}
                     <h3 className={cn(
-                      "font-sans text-xs uppercase tracking-[0.25em] mb-3 transition-colors duration-300",
+                      "font-sans text-xs uppercase tracking-[0.18em] mb-3 transition-colors duration-300",
                       isActive ? "text-white" : "text-white/50 group-hover:text-white/70"
                     )}>
                       {stage.title[language]}

@@ -189,7 +189,7 @@ export const UniversalJurisdictionMap = ({ className }: UniversalJurisdictionMap
                 <div>
                   <h4
                     className={cn(
-                      "font-sans text-xs uppercase tracking-[0.25em] text-white/70 mb-2",
+                      "font-sans text-xs uppercase tracking-[0.18em] text-white/70 mb-2",
                       isGeorgian && "font-georgian"
                     )}
                   >

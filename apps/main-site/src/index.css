@@ -169,6 +169,14 @@ body {
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
+    /* Status colors for alerts/toasts */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 0%;
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+
     --border: 220 15% 90%;
     --input: 220 15% 90%;
     --ring: 220 60% 15%;
@@ -183,6 +191,88 @@ body {
 
     /* Parchment - warm authority background */
     --parchment: 220 20% 97%;
+
+    /* ============================================
+       TYPOGRAPHY SCALE TOKENS
+       ============================================ */
+    --type-size-display-xl: clamp(2.75rem, 8vw, 5rem);
+    --type-size-display: clamp(2rem, 5vw, 3.5rem);
+    --type-size-display-sm: clamp(1.5rem, 4vw, 2.5rem);
+    --type-size-heading: clamp(1.5rem, 3vw, 2.25rem);
+    --type-size-subheading: clamp(1.125rem, 2vw, 1.5rem);
+    --type-size-lead: clamp(1.125rem, 2vw, 1.375rem);
+    --type-size-body-lg: 1.25rem;
+    --type-size-body: 1.0625rem;
+    --type-size-nav: 0.875rem;
+    --type-size-label-lg: 0.875rem;
+    --type-size-label: 0.8125rem;
+    --type-size-caption: 0.75rem;
+    --type-size-eyebrow: 0.6875rem;
+
+    /* Line heights */
+    --type-leading-tight: 1.1;
+    --type-leading-heading: 1.2;
+    --type-leading-body: 1.7;
+    --type-leading-relaxed: 1.85;
+
+    /* Letter spacing */
+    --type-tracking-tighter: -0.02em;
+    --type-tracking-tight: -0.01em;
+    --type-tracking-normal: 0;
+    --type-tracking-wide: 0.04em;
+    --type-tracking-wider: 0.08em;
+    --type-tracking-eyebrow: 0.18em;
+
+    /* ============================================
+       SPACING SCALE TOKENS
+       ============================================ */
+    --space-0: 0;
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
+    --space-24: 6rem;
+    --space-32: 8rem;
+
+    /* Section spacing - semantic tokens */
+    --space-section-intimate: clamp(3rem, 6vw, 5rem);
+    --space-section-generous: clamp(5rem, 10vw, 8rem);
+    --space-section-vast: clamp(8rem, 15vw, 12rem);
+
+    /* Container */
+    --container-max: 1400px;
+    --container-padding: clamp(1rem, 4vw, 2rem);
+
+    /* ============================================
+       MOTION TOKENS
+       ============================================ */
+    --motion-duration-instant: 50ms;
+    --motion-duration-fast: 150ms;
+    --motion-duration-normal: 300ms;
+    --motion-duration-slow: 500ms;
+    --motion-duration-slower: 700ms;
+    --motion-duration-cinematic: 1200ms;
+
+    /* Easing curves */
+    --motion-easing-default: cubic-bezier(0.22, 1, 0.36, 1);
+    --motion-easing-in: cubic-bezier(0.4, 0, 1, 1);
+    --motion-easing-out: cubic-bezier(0, 0, 0.2, 1);
+    --motion-easing-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* ============================================
+       SHADOW/ELEVATION TOKENS
+       ============================================ */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   }
 
 }
@@ -360,26 +450,146 @@ body {
     border-color: hsl(var(--navy));
   }
 
-  /* Display typography */
+  /* ============================================
+     TOKEN-BASED TYPOGRAPHY UTILITIES
+     ============================================ */
+
+  /* Display typography - using tokens */
   .text-display-xl {
-    font-size: clamp(2.75rem, 8vw, 5rem);
-    line-height: 1.12;
-    letter-spacing: -0.01em;
+    font-size: var(--type-size-display-xl);
+    line-height: var(--type-leading-tight);
+    letter-spacing: var(--type-tracking-tight);
     font-weight: 400;
   }
 
   .text-display {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    line-height: 1.15;
-    letter-spacing: -0.01em;
+    font-size: var(--type-size-display);
+    line-height: var(--type-leading-heading);
+    letter-spacing: var(--type-tracking-tight);
     font-weight: 400;
   }
 
   .text-display-sm {
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
-    line-height: 1.15;
-    letter-spacing: -0.015em;
+    font-size: var(--type-size-display-sm);
+    line-height: var(--type-leading-heading);
+    letter-spacing: var(--type-tracking-tight);
     font-weight: 400;
+  }
+
+  .text-heading {
+    font-size: var(--type-size-heading);
+    line-height: var(--type-leading-heading);
+    letter-spacing: var(--type-tracking-tight);
+    font-weight: 400;
+  }
+
+  .text-subheading {
+    font-size: var(--type-size-subheading);
+    line-height: var(--type-leading-heading);
+    letter-spacing: var(--type-tracking-normal);
+    font-weight: 400;
+  }
+
+  .text-lead {
+    font-size: var(--type-size-lead);
+    line-height: var(--type-leading-body);
+    letter-spacing: var(--type-tracking-normal);
+    font-weight: 400;
+  }
+
+  .text-body-lg {
+    font-size: var(--type-size-body-lg);
+    line-height: var(--type-leading-body);
+    letter-spacing: var(--type-tracking-normal);
+    font-weight: 400;
+  }
+
+  .text-body {
+    font-size: var(--type-size-body);
+    line-height: var(--type-leading-body);
+    letter-spacing: var(--type-tracking-normal);
+    font-weight: 400;
+  }
+
+  /* Eyebrow - small caps labels */
+  .text-eyebrow {
+    font-family: 'National 2', system-ui, sans-serif;
+    font-size: var(--type-size-eyebrow);
+    line-height: 1;
+    letter-spacing: var(--type-tracking-eyebrow);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* Label - UI labels and meta */
+  .text-label {
+    font-family: 'National 2', system-ui, sans-serif;
+    font-size: var(--type-size-label);
+    line-height: 1.4;
+    letter-spacing: var(--type-tracking-wide);
+    font-weight: 400;
+  }
+
+  .text-label-lg {
+    font-family: 'National 2', system-ui, sans-serif;
+    font-size: var(--type-size-label-lg);
+    line-height: 1.4;
+    letter-spacing: var(--type-tracking-normal);
+    font-weight: 400;
+  }
+
+  /* Caption - small descriptive text */
+  .text-caption {
+    font-family: 'National 2', system-ui, sans-serif;
+    font-size: var(--type-size-caption);
+    line-height: 1.5;
+    letter-spacing: var(--type-tracking-normal);
+    font-weight: 400;
+  }
+
+  /* Navigation text */
+  .text-nav {
+    font-family: 'National 2', system-ui, sans-serif;
+    font-size: var(--type-size-nav);
+    line-height: 1;
+    letter-spacing: var(--type-tracking-wide);
+    font-weight: 500;
+  }
+
+  /* ============================================
+     SECTION SPACING UTILITIES
+     ============================================ */
+
+  .py-section-intimate {
+    padding-top: var(--space-section-intimate);
+    padding-bottom: var(--space-section-intimate);
+  }
+
+  .py-section-generous {
+    padding-top: var(--space-section-generous);
+    padding-bottom: var(--space-section-generous);
+  }
+
+  .py-section-vast {
+    padding-top: var(--space-section-vast);
+    padding-bottom: var(--space-section-vast);
+  }
+
+  .pt-section-intimate { padding-top: var(--space-section-intimate); }
+  .pt-section-generous { padding-top: var(--space-section-generous); }
+  .pt-section-vast { padding-top: var(--space-section-vast); }
+  
+  .pb-section-intimate { padding-bottom: var(--space-section-intimate); }
+  .pb-section-generous { padding-bottom: var(--space-section-generous); }
+  .pb-section-vast { padding-bottom: var(--space-section-vast); }
+
+  /* Container utility */
+  .container-editorial {
+    max-width: var(--container-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
   }
 
   /* Epigraph - opening statements with gravitas */

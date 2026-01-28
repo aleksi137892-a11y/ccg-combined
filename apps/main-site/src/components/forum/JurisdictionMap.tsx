@@ -113,7 +113,7 @@ export const JurisdictionMap: React.FC<JurisdictionMapProps> = ({ className }) =
       {/* Section Header */}
       <div className="mb-8">
         <h3 className={cn(
-          'font-sans text-xs uppercase tracking-[0.25em] text-white/50 mb-4',
+          'font-sans text-xs uppercase tracking-[0.18em] text-white/50 mb-4',
           isGeorgian && 'font-georgian'
         )}>
           {isGeorgian ? 'აქტიური იურისდიქციები' : 'Active Jurisdictions'}

@@ -397,7 +397,7 @@ const Header: React.FC<HeaderProps> = ({
             {item.sections.map((section, idx) => (
               <div key={idx}>
                 <h4 className={cn(
-                  'text-[11px] font-semibold uppercase tracking-widest text-white/50 mb-3',
+                  'text-eyebrow text-white/50 mb-3',
                   language === 'ge' ? 'font-georgian' : ''
                 )}>
                   {getLabel(section, 'heading')}
@@ -417,7 +417,7 @@ const Header: React.FC<HeaderProps> = ({
                         </span>
                         {link.microcopy && (
                           <span className={cn(
-                            'block text-[11px] text-white/50 mt-0.5',
+                            'block text-caption text-white/50 mt-0.5',
                             language === 'ge' ? 'font-georgian' : ''
                           )}>
                             {language === 'ge' && link.microcopyGe ? link.microcopyGe : link.microcopy}
@@ -449,7 +449,7 @@ const Header: React.FC<HeaderProps> = ({
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <div className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider text-white/50 mb-1">
+                  <div className="flex items-center gap-1.5 text-eyebrow text-white/50 mb-1">
                     <span>{language === 'en' ? 'Featured' : 'გამორჩეული'}</span>
                     {item.featured.isExternal && <ExternalLink className="w-2.5 h-2.5" />}
                   </div>
@@ -532,7 +532,7 @@ const Header: React.FC<HeaderProps> = ({
             <button
               onClick={toggleLanguage}
               className={cn(
-                "flex items-center text-[10px] uppercase tracking-[0.12em] font-sans transition-colors duration-200",
+                "flex items-center text-eyebrow font-sans transition-colors duration-200",
                 isNavy ? "text-white" : "text-navy"
               )}
               aria-label={language === 'en' ? 'Switch to Georgian' : 'Switch to English'}
@@ -558,7 +558,7 @@ const Header: React.FC<HeaderProps> = ({
                     to={langPrefix + (item.href || '/')}
                     onMouseEnter={() => handleMenuEnter(item.id)}
                     className={cn(
-                      'py-2 text-[12px] uppercase tracking-[0.08em] font-sans transition-colors duration-200 flex items-center gap-1',
+                      'py-2 text-nav font-sans transition-colors duration-200 flex items-center gap-1',
                       isNavy
                         ? (activeMenu === item.id ? 'text-white font-semibold' : 'text-white/80 hover:text-white font-medium')
                         : (activeMenu === item.id ? 'text-navy font-semibold' : 'text-navy hover:text-navy/70 font-medium'),
@@ -605,7 +605,7 @@ const Header: React.FC<HeaderProps> = ({
                   to={langPrefix + (item.href || '/')}
                   onMouseEnter={() => handleMenuEnter(item.id)}
                   className={cn(
-                    'py-2 text-[12px] uppercase tracking-[0.08em] font-sans transition-colors duration-200 flex items-center gap-1',
+                    'py-2 text-nav font-sans transition-colors duration-200 flex items-center gap-1',
                     isNavy
                       ? (activeMenu === item.id ? 'text-white font-semibold' : 'text-white/80 hover:text-white font-medium')
                       : (activeMenu === item.id ? 'text-navy font-semibold' : 'text-navy hover:text-navy/70 font-medium'),
@@ -628,7 +628,7 @@ const Header: React.FC<HeaderProps> = ({
           <button
             onClick={toggleLanguage}
             className={cn(
-              "flex items-center text-[10px] uppercase tracking-[0.12em] font-sans",
+              "flex items-center text-eyebrow font-sans",
               isNavy ? "text-white" : "text-navy"
             )}
             aria-label={language === 'en' ? 'Switch to Georgian' : 'Switch to English'}

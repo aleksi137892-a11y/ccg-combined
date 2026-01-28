@@ -274,7 +274,7 @@ const Footer: React.FC = () => {
           {FOOTER_DATA.mainColumns.map((column, colIdx) => (
             <div key={colIdx} className="space-y-3">
               <h3 className={cn(
-                'text-[11px] font-semibold uppercase tracking-[0.12em] text-white/50 pb-1 border-b border-white/10',
+                'text-eyebrow text-white/50 pb-1 border-b border-white/10',
                 language === 'ge' ? 'font-georgian' : ''
               )}>
                 {getHeading(column)}
@@ -285,7 +285,7 @@ const Footer: React.FC = () => {
                     <Link
                       to={link.href}
                       className={cn(
-                        'relative text-[12px] text-white/70 hover:text-white transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]',
+                        'relative text-caption text-white/70 hover:text-white transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]',
                         'after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-white/50',
                         'after:scale-x-0 after:origin-right after:transition-transform after:duration-300',
                         'hover:after:scale-x-100 hover:after:origin-left',
@@ -306,7 +306,7 @@ const Footer: React.FC = () => {
           {FOOTER_DATA.mainColumns.map((column, colIdx) => (
             <div key={colIdx} className="space-y-3">
               <h3 className={cn(
-                'text-[11px] font-semibold uppercase tracking-[0.12em] text-white/50 pb-1 border-b border-white/10',
+                'text-eyebrow text-white/50 pb-1 border-b border-white/10',
                 language === 'ge' ? 'font-georgian' : ''
               )}>
                 {getHeading(column)}
@@ -393,7 +393,7 @@ const Footer: React.FC = () => {
             {/* Left: Institutional Statements */}
             <div className="lg:w-[50%] space-y-3">
               <p className={cn(
-                'text-[11px] leading-relaxed text-white/50',
+                'text-caption leading-relaxed text-white/50',
                 language === 'ge' ? 'font-georgian' : ''
               )}>
                 {language === 'ge' ? (
@@ -406,7 +406,7 @@ const Footer: React.FC = () => {
               </p>
               
               <p className={cn(
-                'text-[11px] leading-relaxed text-white/35',
+                'text-caption leading-relaxed text-white/35',
                 language === 'ge' ? 'font-georgian' : ''
               )}>
                 {language === 'ge' ? (

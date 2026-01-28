@@ -94,11 +94,11 @@ const Justice = () => {
         <JumpToNav items={jumpToItems} sticky />
 
         {/* FOUNDATIONS */}
-        <section id="foundations" className="py-12 md:py-20 bg-navy text-white border-b border-white/10">
+        <section id="foundations" className="py-section-generous bg-navy text-white border-b border-white/10">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl">
               <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={viewportOnce}
-                className="font-sans text-xs uppercase tracking-[0.25em] text-white/50 mb-12">
+                className="font-sans text-xs uppercase tracking-[0.18em] text-white/50 mb-12">
                 {isGeorgian ? 'საფუძვლები' : 'Foundations'}
               </motion.h2>
 
@@ -127,11 +127,11 @@ const Justice = () => {
         </section>
 
         {/* ARCHITECTURE - Interactive Pipeline */}
-        <section id="architecture" className="py-10 md:py-16 bg-navy text-white border-b border-white/10">
+        <section id="architecture" className="py-section-intimate bg-navy text-white border-b border-white/10">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto mb-10">
               <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={viewportOnce}
-                className="font-sans text-xs uppercase tracking-[0.25em] text-white/50 mb-4 text-center">
+                className="font-sans text-xs uppercase tracking-[0.18em] text-white/50 mb-4 text-center">
                 {isGeorgian ? 'არქიტექტურა' : 'The Architecture'}
               </motion.h2>
               <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce}
@@ -144,11 +144,11 @@ const Justice = () => {
         </section>
 
         {/* APPEAL - Tabbed Pathways */}
-        <section id="appeal" className="py-12 md:py-20 bg-navy text-white border-b border-white/10">
+        <section id="appeal" className="py-section-generous bg-navy text-white border-b border-white/10">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl">
               <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={viewportOnce}
-                className="font-sans text-xs uppercase tracking-[0.25em] text-white/50 mb-4">
+                className="font-sans text-xs uppercase tracking-[0.18em] text-white/50 mb-4">
                 {isGeorgian ? content.appeal.titleGe : content.appeal.title}
               </motion.h2>
               <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce}
@@ -169,17 +169,17 @@ const Justice = () => {
 
         {/* IIMG - Floating Block */}
         <section id="iimg" className="bg-navy border-b border-white/10">
-          <div className="container mx-auto px-4 py-12 md:py-20">
+          <div className="container mx-auto px-4 py-section-generous">
             <FloatingIIMGBlock imageSrc={iimgPhoto} />
           </div>
         </section>
 
         {/* RECORD - Floating Card Stack */}
-        <section id="record" className="py-12 md:py-20 bg-navy text-white border-b border-white/10">
+        <section id="record" className="py-section-generous bg-navy text-white border-b border-white/10">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mb-12">
               <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={viewportOnce}
-                className="font-sans text-xs uppercase tracking-[0.25em] text-white/50 mb-4">
+                className="font-sans text-xs uppercase tracking-[0.18em] text-white/50 mb-4">
                 {isGeorgian ? content.record.titleGe : content.record.title}
               </motion.h2>
               <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce}
@@ -196,11 +196,11 @@ const Justice = () => {
         </section>
 
         {/* REMEDY - Horizontal Gallery + Map */}
-        <section id="remedy" className="py-10 md:py-16 bg-navy text-white border-b border-white/10">
+        <section id="remedy" className="py-section-intimate bg-navy text-white border-b border-white/10">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mb-10">
               <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={viewportOnce}
-                className="font-sans text-xs uppercase tracking-[0.25em] text-white/50 mb-4">
+                className="font-sans text-xs uppercase tracking-[0.18em] text-white/50 mb-4">
                 {isGeorgian ? content.remedy.titleGe : content.remedy.title}
               </motion.h2>
               <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce}
@@ -243,11 +243,11 @@ const Justice = () => {
         </section>
 
         {/* TRIAGE - Interactive Matrix */}
-        <section id="triage" className="py-12 md:py-20 bg-[#f8f6f1] border-b border-navy/10">
+        <section id="triage" className="py-section-generous bg-parchment border-b border-navy/10">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mb-10">
               <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={viewportOnce}
-                className="font-sans text-xs uppercase tracking-[0.25em] text-navy/40 mb-4">
+                className="font-sans text-xs uppercase tracking-[0.18em] text-navy/40 mb-4">
                 {isGeorgian ? content.triage.titleGe : content.triage.title}
               </motion.h2>
               <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce}
@@ -264,11 +264,11 @@ const Justice = () => {
         </section>
 
         {/* COMMITMENTS - Accordion */}
-        <section id="commitments" className="py-12 md:py-20 bg-navy text-white border-b border-white/10">
+        <section id="commitments" className="py-section-generous bg-navy text-white border-b border-white/10">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl">
               <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={viewportOnce}
-                className="font-sans text-xs uppercase tracking-[0.25em] text-white/50 mb-4">
+                className="font-sans text-xs uppercase tracking-[0.18em] text-white/50 mb-4">
                 {isGeorgian ? content.commitments.titleGe : content.commitments.title}
               </motion.h2>
               <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce}
@@ -281,7 +281,7 @@ const Justice = () => {
         </section>
 
         {/* CLOSING */}
-        <section className="py-16 md:py-24 bg-navy">
+        <section className="py-section-vast bg-navy">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce}

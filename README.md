@@ -102,6 +102,23 @@ npx supabase functions deploy
 npx supabase db push
 ```
 
+## Security Notes
+
+**Known dev-only vulnerability**: The esbuild package in vite has a moderate severity issue that only affects the development server. This does not impact production builds. A fix requires upgrading to vite 7.x which introduces breaking changes.
+
+## Deployment Scripts
+
+```bash
+# Login to Supabase CLI first
+npx supabase login
+
+# Apply database migrations
+./scripts/apply-migrations.sh
+
+# Deploy edge functions only
+./scripts/deploy-functions.sh
+```
+
 ## License
 
 Proprietary - Civic Council of Georgia

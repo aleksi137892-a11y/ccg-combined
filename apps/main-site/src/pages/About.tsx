@@ -9,9 +9,18 @@ import { ExpandableSection } from '@/components/ui/expandable-section';
 import { aboutContent } from '@/data/aboutContent';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import JumpToNav from '@/components/institutional/JumpToNav';
 
 const About: React.FC = () => {
   const { isGeorgian, getLocalizedPath } = useLanguage();
+
+  const jumpToItems = [
+    { id: 'doctrine', label: 'Doctrine', labelGe: 'დოქტრინა' },
+    { id: 'context', label: 'Context', labelGe: 'კონტექსტი' },
+    { id: 'origin', label: 'Origin', labelGe: 'წარმოშობა' },
+    { id: 'what-we-build', label: 'Programs', labelGe: 'პროგრამები' },
+    { id: 'legitimacy', label: 'Legitimacy', labelGe: 'ლეგიტიმურობა' },
+  ];
 
   const getText = (en: string, ge: string) => isGeorgian ? ge : en;
   const getArray = (en: string[], ge: string[]) => isGeorgian ? ge : en;
@@ -113,6 +122,9 @@ const About: React.FC = () => {
             </div>
           </div>
         </section>
+
+        {/* Jump to navigation */}
+        <JumpToNav items={jumpToItems} sticky />
 
         {/* Core sections with expandables */}
         {aboutContent.sections.map((section, idx) => (

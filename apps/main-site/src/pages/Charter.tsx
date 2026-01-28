@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { charterContent } from '@/data/charterContent';
 import { viewportOnce } from '@/lib/animations';
 import { PhotoPlaceholder } from '@/components/ui/photo-placeholder';
+import JumpToNav from '@/components/institutional/JumpToNav';
 import {
   Accordion,
   AccordionContent,
@@ -16,6 +17,13 @@ import {
 const Charter: React.FC = () => {
   const { isGeorgian, getLocalizedPath } = useLanguage();
   const content = charterContent;
+
+  // Generate jump-to items from articles
+  const jumpToItems = content.articles.map((article) => ({
+    id: article.id,
+    label: `${article.numeral}`,
+    labelGe: `${article.numeral}`,
+  }));
 
   useEffect(() => {
     document.title = isGeorgian 
@@ -70,6 +78,9 @@ const Charter: React.FC = () => {
           </div>
         </div>
 
+        {/* Jump to navigation for articles */}
+        <JumpToNav items={jumpToItems} sticky />
+
         {/* Articles Accordion */}
         <div className="container mx-auto px-4 py-8">
           <div className="max-w-3xl">
@@ -83,8 +94,9 @@ const Charter: React.FC = () => {
                   transition={{ duration: 0.3, delay: idx * 0.03 }}
                 >
                   <AccordionItem
+                    id={article.id}
                     value={article.id}
-                    className="border-b border-navy/10 first:border-t"
+                    className="border-b border-navy/10 first:border-t scroll-mt-32"
                   >
                     <AccordionTrigger className="py-5 hover:no-underline group text-left">
                       <div className="flex items-baseline gap-4">

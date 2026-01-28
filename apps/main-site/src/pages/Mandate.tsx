@@ -2,12 +2,14 @@ import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Layout from '@/components/layout/Layout';
 import BrandWordmark from '@/components/ui/brand-wordmark';
+import JumpToNav from '@/components/institutional/JumpToNav';
 
 const Mandate: React.FC = () => {
   const { isGeorgian } = useLanguage();
 
   const articles = [
     { 
+      id: 'article-1',
       num: 'I', 
       title: isGeorgian ? 'დემოკრატიული წარმომადგენლობა' : 'Democratic Representation', 
       text: isGeorgian 
@@ -15,6 +17,7 @@ const Mandate: React.FC = () => {
         : 'To serve as a legitimate voice of Georgian citizens when elected institutions fail to represent the sovereign will of the people.'
     },
     { 
+      id: 'article-2',
       num: 'II', 
       title: isGeorgian ? 'სამოქალაქო ანგარიშვალდებულება' : 'Civic Accountability', 
       text: isGeorgian 
@@ -22,6 +25,7 @@ const Mandate: React.FC = () => {
         : 'To document, investigate, and publicly address abuses of power, corruption, and violations of constitutional order.'
     },
     { 
+      id: 'article-3',
       num: 'III', 
       title: isGeorgian ? 'ინსტიტუციური მთლიანობა' : 'Institutional Integrity', 
       text: isGeorgian 
@@ -29,6 +33,7 @@ const Mandate: React.FC = () => {
         : 'To propose and advocate for reforms that restore transparency, independence, and democratic function to Georgian institutions.'
     },
     { 
+      id: 'article-4',
       num: 'IV', 
       title: isGeorgian ? 'კანონის უზენაესობა' : 'Rule of Law', 
       text: isGeorgian 
@@ -36,12 +41,22 @@ const Mandate: React.FC = () => {
         : 'To uphold and defend the Constitution of Georgia and international legal standards to which Georgia is bound.'
     },
     { 
+      id: 'article-5',
       num: 'V', 
       title: isGeorgian ? 'მოქალაქეთა გაძლიერება' : 'Citizen Empowerment', 
       text: isGeorgian 
         ? 'უზრუნველვყოთ სამოქალაქო ჩართულობის, განათლებისა და ორგანიზებული დემოკრატიული მოქმედების პლატფორმა.'
         : 'To provide a platform for civic engagement, education, and organized democratic action.'
     },
+  ];
+
+  const jumpToItems = [
+    { id: 'preamble', label: 'Preamble', labelGe: 'პრეამბულა' },
+    ...articles.map((article) => ({
+      id: article.id,
+      label: article.num,
+      labelGe: article.num,
+    })),
   ];
 
   return (
@@ -61,8 +76,11 @@ const Mandate: React.FC = () => {
         </div>
       </section>
 
+      {/* Jump to navigation */}
+      <JumpToNav items={jumpToItems} sticky />
+
       {/* Preamble */}
-      <section className="py-24 md:py-32">
+      <section id="preamble" className="py-24 md:py-32 scroll-mt-32">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
             <p className={`text-label text-muted-foreground mb-10 ${isGeorgian ? 'font-georgian' : ''}`}>
@@ -88,8 +106,8 @@ const Mandate: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
             <div className="space-y-24">
-              {articles.map((article, index) => (
-                <article key={index} className="text-center">
+              {articles.map((article) => (
+                <article key={article.id} id={article.id} className="text-center scroll-mt-32">
                   <p className="text-numeral text-5xl md:text-6xl text-muted-foreground/25 mb-4">
                     {article.num}
                   </p>

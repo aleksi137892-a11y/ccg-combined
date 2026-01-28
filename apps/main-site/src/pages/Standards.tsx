@@ -8,10 +8,18 @@ import { viewportOnce } from '@/lib/animations';
 import FoundationSection from '@/components/layout/FoundationSection';
 import { ExpandableSection } from '@/components/ui/expandable-section';
 import { PhotoPlaceholder } from '@/components/ui/photo-placeholder';
+import JumpToNav from '@/components/institutional/JumpToNav';
 
 const Standards: React.FC = () => {
   const { isGeorgian, getLocalizedPath } = useLanguage();
   const content = standardsContent;
+
+  const jumpToItems = [
+    { id: 'principles', label: 'Principles', labelGe: 'პრინციპები' },
+    { id: 'evidence', label: 'Evidence', labelGe: 'მტკიცებულება' },
+    { id: 'triage', label: 'Triage', labelGe: 'ტრიაჟი' },
+    { id: 'protection', label: 'Protection', labelGe: 'დაცვა' },
+  ];
 
   useEffect(() => {
     document.title = isGeorgian 
@@ -60,8 +68,12 @@ const Standards: React.FC = () => {
           </div>
         </div>
 
+        {/* Jump to navigation */}
+        <JumpToNav items={jumpToItems} sticky />
+
         {/* Core Principles */}
         <FoundationSection 
+          id="principles"
           variant="muted" 
           heading={isGeorgian ? 'ძირითადი პრინციპები' : 'Core Principles'}
         >
@@ -100,6 +112,7 @@ const Standards: React.FC = () => {
 
         {/* Evidence & Verification */}
         <FoundationSection 
+          id="evidence"
           variant="white"
           heading={isGeorgian ? 'მტკიცებულება და დადასტურება' : 'Evidence & Verification'}
         >
@@ -123,6 +136,7 @@ const Standards: React.FC = () => {
 
         {/* Triage System */}
         <FoundationSection 
+          id="triage"
           variant="navy"
           heading={isGeorgian ? 'ტრიაჟის სისტემა' : 'Triage System'}
         >
@@ -153,6 +167,7 @@ const Standards: React.FC = () => {
 
         {/* Protection & Reply */}
         <FoundationSection 
+          id="protection"
           variant="white"
           heading={isGeorgian ? 'დაცვა და პასუხის უფლება' : 'Protection & Right of Reply'}
         >

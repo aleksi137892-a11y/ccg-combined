@@ -135,7 +135,7 @@ const JumpToNav: React.FC<JumpToNavProps> = ({ items, sticky = true }) => {
             {/* Left gradient - visible when scrolled right */}
             <div 
               className={cn(
-                "absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none transition-opacity md:hidden",
+                "absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none transition-opacity duration-200",
                 scrollPosition === 'start' ? 'opacity-0' : 'opacity-100'
               )}
               aria-hidden="true"
@@ -143,7 +143,7 @@ const JumpToNav: React.FC<JumpToNavProps> = ({ items, sticky = true }) => {
             
             <div 
               ref={scrollContainerRef}
-              className="flex items-center gap-1 overflow-x-auto scrollbar-hide"
+              className="flex items-center gap-1 overflow-x-auto scrollbar-hide scroll-smooth px-1"
               onScroll={updateScrollPosition}
             >
               {items.map((item, idx) => {
@@ -151,17 +151,17 @@ const JumpToNav: React.FC<JumpToNavProps> = ({ items, sticky = true }) => {
                 return (
                   <React.Fragment key={item.id}>
                     {idx > 0 && (
-                      <span className="text-navy/15 mx-1 shrink-0" aria-hidden="true">·</span>
+                      <span className="text-navy/15 mx-0.5 shrink-0 hidden sm:inline" aria-hidden="true">·</span>
                     )}
                     <button
                       ref={isActive ? activeButtonRef : null}
                       onClick={() => scrollToSection(item.id)}
                       aria-current={isActive ? 'true' : undefined}
                       className={cn(
-                        "font-ui text-sm whitespace-nowrap px-3 py-1.5 transition-all shrink-0 min-h-[44px] flex items-center",
+                        "font-ui text-sm whitespace-nowrap px-3 py-2 transition-all shrink-0 min-h-[44px] min-w-[44px] flex items-center justify-center",
                         isActive
                           ? 'text-navy bg-navy/8 font-medium border-b-2 border-navy'
-                          : 'text-navy/50 hover:text-navy hover:bg-navy/5',
+                          : 'text-navy/50 hover:text-navy hover:bg-navy/5 active:bg-navy/10',
                         isGeorgian && 'font-georgian'
                       )}
                     >
@@ -175,7 +175,7 @@ const JumpToNav: React.FC<JumpToNavProps> = ({ items, sticky = true }) => {
             {/* Right gradient - visible when more to scroll */}
             <div 
               className={cn(
-                "absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none transition-opacity md:hidden",
+                "absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none transition-opacity duration-200",
                 scrollPosition === 'end' ? 'opacity-0' : 'opacity-100'
               )}
               aria-hidden="true"

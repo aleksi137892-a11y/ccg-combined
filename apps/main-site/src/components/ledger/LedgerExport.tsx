@@ -114,7 +114,7 @@ export function LedgerExport({ entities, filters }: LedgerExportProps) {
         ) : (
           <Link2 className="h-4 w-4 mr-2" />
         )}
-        {copied ? 'Copied!' : 'Share this view'}
+        {copied ? 'Copied' : 'Share this view'}
       </Button>
     </div>
   );

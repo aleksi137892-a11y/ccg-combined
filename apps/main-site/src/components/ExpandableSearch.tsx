@@ -116,7 +116,7 @@ export const ExpandableSearch: React.FC<ExpandableSearchProps> = ({ position }) 
           onFocus={handleFocus}
           onBlur={handleBlur}
           onKeyDown={handleKeyDown}
-          placeholder={language === 'en' ? 'Type to search...' : 'ძიება...'}
+          placeholder={language === 'en' ? 'Search pages, records' : 'გვერდები, ჩანაწერები'}
           className={cn(
             "w-full px-3 py-1.5 text-sm rounded-md border transition-colors outline-none",
             isHeader && "bg-background/80 border-border/50 text-foreground placeholder:text-muted-foreground focus:border-primary/50 focus:bg-background",

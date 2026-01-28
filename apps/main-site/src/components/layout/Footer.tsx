@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { cn } from '@/lib/utils';
 import {
@@ -98,8 +99,8 @@ const FOOTER_DATA = {
       headingGe: 'ხელში ჩაგდების მდგომარეობა',
       links: [
         { label: 'The Engine', labelGe: 'ძრავა', href: '/state-of-capture' },
-        { label: 'Evidence Library', labelGe: 'მტკიცებულებების ბიბლიოთეკა', href: '/state-of-capture/evidence' },
-        { label: 'Investigations', labelGe: 'გამოძიებები', href: '/state-of-capture/investigations' },
+        { label: 'Evidence Library', labelGe: 'მტკიცებულებების ბიბლიოთეკა', href: '/state-of-capture/methods' },
+        { label: 'Investigations', labelGe: 'გამოძიებები', href: '/state-of-capture' },
         { label: 'The Report', labelGe: 'ანგარიში', href: '/state-of-capture/findings' },
         { label: 'Methods Summary', labelGe: 'მეთოდების შეჯამება', href: '/state-of-capture/methods' },
         { label: 'Complicity Index', labelGe: 'თანამონაწილეობის ინდექსი', href: '/record/registry' }
@@ -112,7 +113,7 @@ const FOOTER_DATA = {
         { label: 'The Rustaveli Project', labelGe: 'რუსთაველის პროექტი', href: '/rustaveli' },
         { label: 'Civic Canon', labelGe: 'სამოქალაქო კანონი', href: '/rustaveli/canon' },
         { label: 'Movement of Dignity', labelGe: 'ღირსების მოძრაობა', href: '/rustaveli/movement' },
-        { label: 'Heritage & Language', labelGe: 'მემკვიდრეობა და ენა', href: '/rustaveli/heritage' },
+        { label: 'Heritage & Language', labelGe: 'მემკვიდრეობა და ენა', href: '/rustaveli' },
         { label: 'Join the Movement', labelGe: 'შეუერთდი მოძრაობას', href: '/rustaveli/join' }
       ]
     },
@@ -183,8 +184,8 @@ const Footer: React.FC = () => {
           {/* Action buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-4">
             {/* Primary CTA */}
-            <a
-              href={FOOTER_DATA.actionStrip.primary.href}
+            <Link
+              to={FOOTER_DATA.actionStrip.primary.href}
               className={cn(
                 'inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium',
                 'bg-white text-navy rounded-sm',
@@ -194,13 +195,13 @@ const Footer: React.FC = () => {
               )}
             >
               {getLabel(FOOTER_DATA.actionStrip.primary)}
-            </a>
+            </Link>
 
             {/* Secondary CTAs */}
             {FOOTER_DATA.actionStrip.secondary.map((item, idx) => (
-              <a
+              <Link
                 key={idx}
-                href={item.href}
+                to={item.href}
                 className={cn(
                   'inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium',
                   'border border-white/30 rounded-sm',
@@ -210,19 +211,19 @@ const Footer: React.FC = () => {
                 )}
               >
                 {getLabel(item)}
-              </a>
+              </Link>
             ))}
 
             {/* Text link */}
-            <a
-              href={FOOTER_DATA.actionStrip.link.href}
+            <Link
+              to={FOOTER_DATA.actionStrip.link.href}
               className={cn(
                 'text-sm text-white/60 hover:text-white/80 underline underline-offset-2 transition-colors',
                 language === 'ge' ? 'font-georgian' : ''
               )}
             >
               {getLabel(FOOTER_DATA.actionStrip.link)}
-            </a>
+            </Link>
           </div>
 
           {/* Safety note */}
@@ -246,8 +247,8 @@ const Footer: React.FC = () => {
                 {idx > 0 && (
                   <span className="text-white/20 hidden sm:inline">|</span>
                 )}
-                <a
-                  href={item.href}
+                <Link
+                  to={item.href}
                   className={cn(
                     'relative px-2 py-1 text-white/60 hover:text-white/80 transition-colors',
                     'after:absolute after:bottom-0 after:left-2 after:right-2 after:h-px after:bg-white/40',
@@ -257,7 +258,7 @@ const Footer: React.FC = () => {
                   )}
                 >
                   {getLabel(item)}
-                </a>
+                </Link>
               </React.Fragment>
             ))}
           </div>
@@ -281,8 +282,8 @@ const Footer: React.FC = () => {
               <ul className="space-y-1.5">
                 {column.links.map((link, linkIdx) => (
                   <li key={linkIdx}>
-                    <a
-                      href={link.href}
+                    <Link
+                      to={link.href}
                       className={cn(
                         'relative text-[12px] text-white/70 hover:text-white transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]',
                         'after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-white/50',
@@ -292,7 +293,7 @@ const Footer: React.FC = () => {
                       )}
                     >
                       {getLabel(link)}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -313,8 +314,8 @@ const Footer: React.FC = () => {
               <ul className="space-y-2">
                 {column.links.map((link, linkIdx) => (
                   <li key={linkIdx}>
-                    <a
-                      href={link.href}
+                    <Link
+                      to={link.href}
                       className={cn(
                         'relative text-sm text-white/70 hover:text-white transition-colors',
                         'after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-white/50',
@@ -324,7 +325,7 @@ const Footer: React.FC = () => {
                       )}
                     >
                       {getLabel(link)}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -358,8 +359,8 @@ const Footer: React.FC = () => {
                   <ul className="space-y-2">
                     {column.links.map((link, linkIdx) => (
                       <li key={linkIdx}>
-                        <a
-                          href={link.href}
+                        <Link
+                          to={link.href}
                           className={cn(
                             'relative text-sm text-white/60 hover:text-white transition-colors',
                             'after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-white/50',
@@ -369,7 +370,7 @@ const Footer: React.FC = () => {
                           )}
                         >
                           {getLabel(link)}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -431,8 +432,8 @@ const Footer: React.FC = () => {
                       <span className="text-white/20">|</span>
                     )}
                     <li>
-                      <a
-                        href={link.href}
+                      <Link
+                        to={link.href}
                         className={cn(
                           'relative px-1 text-[11px] text-white/50 hover:text-white/60 transition-colors',
                           'after:absolute after:bottom-0 after:left-1 after:right-1 after:h-px after:bg-white/40',
@@ -442,7 +443,7 @@ const Footer: React.FC = () => {
                         )}
                       >
                         {getLabel(link)}
-                      </a>
+                      </Link>
                     </li>
                   </React.Fragment>
                 ))}

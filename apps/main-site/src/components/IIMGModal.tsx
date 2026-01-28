@@ -1,6 +1,5 @@
 import { useState, useEffect, forwardRef, useImperativeHandle } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { ExternalLink, ArrowRight } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -51,7 +50,7 @@ const IIMGModal = forwardRef<IIMGModalRef>((_, ref) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => (!open ? handleClose() : undefined)}>
-      <DialogContent className="fixed inset-3 sm:inset-auto sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 w-[calc(100vw-1.5rem)] sm:w-[92vw] md:w-[88vw] sm:max-w-5xl p-0 overflow-hidden border-0 bg-foreground text-background [&>button]:hidden shadow-2xl h-[calc(100vh-1.5rem)] sm:h-[85vh] flex flex-col">
+      <DialogContent className="fixed inset-3 sm:inset-auto sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 w-[calc(100vw-1.5rem)] sm:w-[92vw] md:w-[88vw] sm:max-w-5xl p-0 overflow-hidden border-0 bg-foreground text-background [&>button]:hidden h-[calc(100vh-1.5rem)] sm:h-[85vh] flex flex-col">
         {/* Close button */}
         <button
           type="button"

@@ -1,6 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import { MessageCircle, Mail, ExternalLink, Heart } from 'lucide-react';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import iimgPhoto from '@/assets/forum-user-photo-alt.jpg';
 
@@ -17,7 +16,7 @@ const JoinMovementSection = () => {
             <div className="text-center space-y-8">
               <div className="inline-block">
                 <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                  — {language === 'ge' ? 'განვითარების პროცესში' : 'In Development'} —
+                  {language === 'ge' ? 'განვითარების პროცესში' : 'In Development'}
                 </span>
               </div>
               
@@ -29,8 +28,8 @@ const JoinMovementSection = () => {
               
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                 {language === 'ge'
-                  ? 'ჩვენ ვაშენებთ რაღაცას ერთად — საფუძველს მოქალაქეთა ანგარიშვალდებულებისა და ღირსების აღდგენისთვის. შემოუერთდით მოძრაობას.'
-                  : 'We are building something together — a foundation for citizen-led accountability and the restoration of dignity. Join the movement.'}
+                  ? 'ჩვენ ვაშენებთ რაღაცას ერთად: საფუძველს მოქალაქეთა ანგარიშვალდებულებისა და ღირსების აღდგენისთვის. შემოუერთდით მოძრაობას.'
+                  : 'We are building something together: a foundation for citizen-led accountability and the restoration of dignity. Join the movement.'}
               </p>
               
               <p className="text-sm text-muted-foreground/70 italic">
@@ -43,7 +42,7 @@ const JoinMovementSection = () => {
 
           {/* Join the Movement */}
           <ScrollReveal delay={0.1}>
-            <div className="bg-card/30 border border-border/30 rounded-2xl p-8 md:p-12 lg:p-16 space-y-8">
+            <div className="bg-card/30 border border-border/30 p-8 md:p-12 lg:p-16 space-y-8">
               <div className="text-center space-y-4">
                 <h3 className={`font-display ${language === 'ge' ? 'font-georgian text-xl md:text-2xl' : 'text-2xl md:text-3xl'}`}>
                   {language === 'ge' 
@@ -61,24 +60,22 @@ const JoinMovementSection = () => {
                 <Button 
                   variant="outline" 
                   size="lg"
-                  className="w-full sm:w-auto gap-3 border-foreground/20 hover:bg-foreground/5"
+                  className="w-full sm:w-auto border-foreground/20 hover:bg-foreground/5"
                   asChild
                 >
                   <a href="https://signal.me/#eu/CCG.95" target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="h-5 w-5" />
-                    <span>Signal: CCG.95</span>
+                    Signal: CCG.95
                   </a>
                 </Button>
                 
                 <Button 
                   variant="outline" 
                   size="lg"
-                  className="w-full sm:w-auto gap-3 border-foreground/20 hover:bg-foreground/5"
+                  className="w-full sm:w-auto border-foreground/20 hover:bg-foreground/5"
                   asChild
                 >
                   <a href="mailto:georgia@sabcho.org">
-                    <Mail className="h-5 w-5" />
-                    <span>georgia@sabcho.org</span>
+                    georgia@sabcho.org
                   </a>
                 </Button>
               </div>
@@ -87,7 +84,7 @@ const JoinMovementSection = () => {
 
           {/* IIMG Feature Card */}
           <ScrollReveal delay={0.2}>
-            <div className="bg-primary text-primary-foreground rounded-2xl overflow-hidden">
+            <div className="bg-primary text-primary-foreground overflow-hidden">
               <div className="grid grid-cols-1 lg:grid-cols-2">
                 {/* Image */}
                 <div className="aspect-[4/3] lg:aspect-auto overflow-hidden">
@@ -108,7 +105,6 @@ const JoinMovementSection = () => {
                         IIMG
                       </h3>
                     </div>
-                    <ExternalLink className="h-6 w-6 text-primary-foreground/50 flex-shrink-0" />
                   </div>
                   
                   <div className="space-y-4">
@@ -127,12 +123,11 @@ const JoinMovementSection = () => {
                   <Button 
                     variant="secondary"
                     size="lg"
-                    className="gap-3 w-fit"
+                    className="w-fit"
                     asChild
                   >
                     <a href="https://iimg.sabcho.org/en" target="_blank" rel="noopener noreferrer">
-                      <span>{language === 'ge' ? 'ეწვიეთ IIMG-ს' : 'Visit IIMG'}</span>
-                      <ExternalLink className="h-4 w-4" />
+                      {language === 'ge' ? 'ეწვიეთ IIMG-ს' : 'Visit IIMG'}
                     </a>
                   </Button>
                 </div>
@@ -143,10 +138,6 @@ const JoinMovementSection = () => {
           {/* Donation Section */}
           <ScrollReveal delay={0.3}>
             <div className="text-center space-y-8 py-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-accent/10 text-accent">
-                <Heart className="h-8 w-8" />
-              </div>
-              
               <div className="space-y-4">
                 <h3 className={`font-display ${language === 'ge' ? 'font-georgian text-xl md:text-2xl' : 'text-2xl md:text-3xl'}`}>
                   {language === 'ge' 
@@ -163,12 +154,10 @@ const JoinMovementSection = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button 
                   size="lg"
-                  className="gap-3"
                   asChild
                 >
                   <a href="mailto:donate@civiccounsel.org?subject=Donation%20Inquiry">
-                    <Heart className="h-5 w-5" />
-                    <span>{language === 'ge' ? 'შემოწირულობის შესახებ' : 'Inquire About Donating'}</span>
+                    {language === 'ge' ? 'შემოწირულობის შესახებ' : 'Inquire About Donating'}
                   </a>
                 </Button>
               </div>

@@ -1,14 +1,15 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "@ccg/main-site",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "build:dev": "vite build --mode development",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "dev": "../../node_modules/.bin/vite",
+    "build": "../../node_modules/.bin/vite build",
+    "build:dev": "../../node_modules/.bin/vite build --mode development",
+    "lint": "../../node_modules/.bin/eslint .",
+    "preview": "../../node_modules/.bin/vite preview",
+    "typecheck": "../../node_modules/.bin/tsc --noEmit"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

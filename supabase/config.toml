@@ -18,10 +18,10 @@ verify_jwt = true
 verify_jwt = true
 
 [functions.image-proxy]
-verify_jwt = false  # Public image proxy
+verify_jwt = false  # Public image proxy - serves cached images
 
 [functions.photo-discovery]
 verify_jwt = true
 
 [functions.photo-import]
-verify_jwt = true
+verify_jwt = true  # Admin only - imports photos to storage

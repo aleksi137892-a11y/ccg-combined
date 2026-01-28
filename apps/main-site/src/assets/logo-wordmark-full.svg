@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 224.18">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1a1444;
+        font-family: TestDomaineDisplay-Bold, 'Test Domaine Display';
+        font-size: 84.29px;
+        font-weight: 700;
+      }
+
+      .cls-2 {
+        fill: #1b1445;
+        font-family: TestDomaineDisplay-Semibold, 'Test Domaine Display';
+        font-size: 82.91px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <text class="cls-1" transform="translate(0 71.65) scale(.97 1)"><tspan x="0" y="0">C</tspan></text>
+      <text class="cls-1" transform="translate(0 135.63) scale(.97 1)"><tspan x="0" y="0">G</tspan></text>
+      <text class="cls-2" transform="translate(13.83 102.55) scale(1.05 1)"><tspan x="0" y="0">CIVIC COUNCIL OF GEORGIA</tspan></text>
+    </g>
+  </g>
+    </g>
+  </g>
+</svg>

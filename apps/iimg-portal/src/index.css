@@ -1,0 +1,410 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 35% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 35% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 35% 12%;
+
+    --primary: 220 35% 12%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 95%;
+    --secondary-foreground: 220 35% 12%;
+
+    --muted: 220 15% 95%;
+    --muted-foreground: 220 15% 40%;
+
+    --accent: 220 15% 92%;
+    --accent-foreground: 220 35% 12%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 220 35% 12%;
+
+    --radius: 0.25rem;
+
+    /* Custom tokens */
+    --navy-deep: 220 45% 8%;
+    --navy-text: 220 35% 15%;
+    --cream: 40 20% 98%;
+    
+    /* Security Blue palette - for light mode accents */
+    --security: 210 65% 45%;
+    --security-foreground: 0 0% 100%;
+    --security-muted: 210 50% 92%;
+
+    --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --font-body: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  }
+
+  .dark {
+    --background: 220 45% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 220 45% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 45% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 220 45% 8%;
+
+    --secondary: 220 30% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 220 30% 15%;
+    --muted-foreground: 220 15% 65%;
+
+    --accent: 220 30% 18%;
+    --accent-foreground: 0 0% 98%;
+
+    --border: 220 30% 18%;
+    --input: 220 30% 18%;
+    --ring: 0 0% 85%;
+    
+    /* Security Blue palette dark */
+    --security: 210 70% 55%;
+    --security-foreground: 0 0% 100%;
+    --security-muted: 210 40% 20%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    height: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+    min-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  #root {
+    min-height: 100%;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .article-text {
+    @apply text-lg leading-relaxed tracking-wide;
+    font-family: var(--font-body);
+  }
+
+  .masthead {
+    font-family: var(--font-display);
+    @apply font-semibold tracking-tight leading-tight;
+  }
+
+  .byline {
+    font-family: var(--font-body);
+    @apply text-muted-foreground italic;
+  }
+
+  .footer-legal {
+    font-family: var(--font-body);
+    @apply text-sm leading-relaxed text-muted-foreground;
+  }
+
+  /* Light landing page theme override */
+  .light-landing {
+    --background: 0 0% 100%;
+    --foreground: 220 45% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 45% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 45% 8%;
+    --muted: 220 15% 95%;
+    --muted-foreground: 220 30% 35%;
+    --border: 220 15% 88%;
+    --accent: 220 15% 92%;
+    --accent-foreground: 220 45% 8%;
+  }
+
+  /* Light page override for Methodology and Civic Necessity pages */
+  .light-page {
+    background-color: hsl(0 0% 100%) !important;
+    color: hsl(220 35% 15%) !important;
+  }
+
+  .light-page header,
+  .light-page footer,
+  .light-page main {
+    background-color: hsl(0 0% 100%) !important;
+  }
+
+  .light-page .bg-background {
+    background-color: hsl(0 0% 100%) !important;
+  }
+
+  .light-page .text-foreground {
+    color: hsl(220 35% 15%) !important;
+  }
+
+  .light-page .text-muted-foreground {
+    color: hsl(220 30% 35%) !important;
+  }
+
+  .light-page .border-border {
+    border-color: hsl(220 15% 85%) !important;
+  }
+}
+
+/* Print styles for Security Guide */
+@media print {
+  @page {
+    margin: 1.5cm 2cm;
+    size: A4;
+  }
+
+  body {
+    font-family: 'Times New Roman', Georgia, serif;
+    font-size: 11pt;
+    line-height: 1.6;
+    color: #000 !important;
+    background: #fff !important;
+  }
+
+  /* Show print header */
+  .print-header {
+    display: block !important;
+    border-bottom: 2px solid #1e3a5f !important;
+    margin-bottom: 24pt !important;
+    padding-bottom: 12pt !important;
+  }
+
+  .print-header p {
+    color: #1e3a5f !important;
+  }
+
+  /* Hide non-essential elements */
+  .print\\:hidden,
+  header:not(article header):not(.print-header),
+  footer:not(article footer),
+  nav,
+  button,
+  .theme-toggle,
+  [data-quick-exit] {
+    display: none !important;
+  }
+
+  /* Reset colors for print */
+  * {
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Text colors */
+  h1, h2, h3, p, span, li {
+    color: #000 !important;
+  }
+
+  /* Links styling for print */
+  a {
+    color: #1e3a5f !important;
+    text-decoration: underline !important;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: #666 !important;
+    word-break: break-all;
+  }
+
+  /* Preserve borders with navy color */
+  .border-border,
+  .border-b,
+  .border-t,
+  .border-l-4 {
+    border-color: #1e3a5f !important;
+  }
+
+  /* Blockquote styling */
+  .border-l-4.border-primary {
+    border-left: 4px solid #1e3a5f !important;
+    background-color: #f5f5f5 !important;
+    padding: 12pt !important;
+    margin: 12pt 0 !important;
+  }
+
+  /* Headings */
+  h1 {
+    font-size: 22pt !important;
+    color: #1e3a5f !important;
+    margin-bottom: 12pt !important;
+  }
+
+  h2 {
+    font-size: 14pt !important;
+    color: #1e3a5f !important;
+    page-break-after: avoid;
+    margin-top: 18pt !important;
+    margin-bottom: 8pt !important;
+  }
+
+  h3 {
+    font-size: 12pt !important;
+    page-break-after: avoid;
+  }
+
+  /* Section spacing */
+  section {
+    page-break-inside: avoid;
+    margin-bottom: 18pt !important;
+  }
+
+  /* Article container */
+  article {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Contact box - using attribute selector */
+  [class*="bg-muted"] {
+    background-color: #f5f5f5 !important;
+    border: 1px solid #1e3a5f !important;
+    padding: 12pt !important;
+  }
+
+  /* Warning box */
+  .border-destructive\/50,
+  [class*="border-destructive"] {
+    border-left-color: #c53030 !important;
+  }
+
+  /* Footer */
+  article footer {
+    border-top: 1px solid #1e3a5f !important;
+    padding-top: 12pt !important;
+    margin-top: 24pt !important;
+  }
+
+  /* Print footer with organization info */
+  article footer::after {
+    content: "Civic Council of Georgia • Forum for Justice • Independent Investigative Mechanism for Georgia";
+    display: block;
+    margin-top: 18pt;
+    padding-top: 12pt;
+    border-top: 1px solid #ccc;
+    font-size: 9pt;
+    color: #666 !important;
+    text-align: center;
+  }
+}
+
+/* Protocol Document Styles */
+.protocols-document {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 11pt;
+  line-height: 1.6;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.protocols-document h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.protocols-document h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.protocols-document h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.protocols-document .list-upper-roman {
+  list-style-type: upper-roman;
+}
+
+.protocols-document .page-break-inside-avoid {
+  page-break-inside: avoid;
+}
+
+/* Protocol Document Print Styles */
+@media print {
+  .protocols-document {
+    padding: 0;
+    max-width: 100%;
+    font-size: 10pt;
+  }
+
+  .protocols-document .print-hide {
+    display: none !important;
+  }
+
+  .protocols-document .protocols-header {
+    page-break-after: avoid;
+  }
+
+  .protocols-document .protocols-footer {
+    page-break-before: avoid;
+  }
+
+  .protocols-document section {
+    page-break-inside: avoid;
+  }
+
+  .protocols-document table {
+    page-break-inside: avoid;
+  }
+
+  .protocols-document h2 {
+    page-break-after: avoid;
+  }
+
+  .protocols-document h3 {
+    page-break-after: avoid;
+  }
+
+  /* Ensure tables have visible borders in print */
+  .protocols-document table,
+  .protocols-document th,
+  .protocols-document td {
+    border: 1px solid #333 !important;
+  }
+
+  .protocols-document th {
+    background-color: #1e3a5f !important;
+    color: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Warning box */
+  .protocols-document .border-2.border-black {
+    border: 2px solid #000 !important;
+    background-color: #f5f5f5 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

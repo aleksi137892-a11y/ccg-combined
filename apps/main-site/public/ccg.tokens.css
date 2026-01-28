@@ -1,0 +1,253 @@
+/**
+ * Civic Council of Georgia Design Tokens
+ * CSS Custom Properties
+ * 
+ * Generated: 2026-01-26
+ * Source: tailwind.config.ts, src/index.css, src/lib/forumDesignSystem.ts
+ */
+
+:root {
+  /* ============================================
+     COLOR — BRAND
+     ============================================ */
+  --color-brand-navy: 220 60% 10%;
+  --color-brand-navy-light: 220 50% 18%;
+  --color-brand-navy-pale: 220 20% 97%;
+  --color-brand-parchment: 45 20% 97%;
+
+  /* ============================================
+     COLOR — BACKGROUND (Light Mode)
+     ============================================ */
+  --color-background: 0 0% 100%;
+  --color-background-card: 0 0% 100%;
+  --color-background-popover: 0 0% 100%;
+  --color-background-muted: 220 15% 94%;
+  --color-background-secondary: 220 20% 97%;
+
+  /* ============================================
+     COLOR — SURFACE (Forum Dark UI)
+     ============================================ */
+  --color-surface-base: 220 60% 10%;
+  --color-surface-elevated: 220 55% 13%;
+  --color-surface-surface: 220 50% 16%;
+  --color-surface-hover: 220 45% 18%;
+  --color-surface-accent: 45 20% 97%;
+
+  /* ============================================
+     COLOR — TEXT (Light Backgrounds)
+     ============================================ */
+  --color-text-foreground: 220 60% 10%;
+  --color-text-muted-foreground: 220 15% 45%;
+
+  /* ============================================
+     COLOR — TEXT (Dark Backgrounds)
+     ============================================ */
+  --color-text-primary: 0 0% 100%;
+  --color-text-secondary-opacity: 0.7;
+  --color-text-tertiary-opacity: 0.45;
+  --color-text-muted-opacity: 0.25;
+  --color-text-brand-cream: 45 20% 92%;
+
+  /* ============================================
+     COLOR — BORDER (Light Backgrounds)
+     ============================================ */
+  --color-border-default: 220 15% 90%;
+  --color-border-input: 220 15% 90%;
+  --color-border-ring: 220 60% 15%;
+
+  /* ============================================
+     COLOR — BORDER (Dark Backgrounds)
+     ============================================ */
+  --color-border-quiet-opacity: 0.06;
+  --color-border-subtle-opacity: 0.12;
+  --color-border-visible-opacity: 0.2;
+  --color-border-active-opacity: 0.35;
+
+  /* ============================================
+     COLOR — SEMANTIC
+     ============================================ */
+  --color-primary: 220 60% 15%;
+  --color-primary-foreground: 0 0% 100%;
+  --color-secondary: 220 20% 97%;
+  --color-secondary-foreground: 220 60% 15%;
+  --color-accent: 220 60% 15%;
+  --color-accent-foreground: 0 0% 100%;
+  --color-destructive: 0 84.2% 60.2%;
+  --color-destructive-foreground: 210 40% 98%;
+
+  /* ============================================
+     TYPE — FAMILY
+     ============================================ */
+  --type-family-brand: 'Domaine Display', Georgia, serif;
+  --type-family-display: 'Tiempos Headline', Georgia, 'Times New Roman', serif;
+  --type-family-body: 'Tiempos Text', Georgia, 'Times New Roman', serif;
+  --type-family-ui: 'National 2', system-ui, sans-serif;
+  --type-family-georgian: 'Noto Serif Georgian', Georgia, serif;
+
+  /* ============================================
+     TYPE — WEIGHT
+     ============================================ */
+  --type-weight-regular: 400;
+  --type-weight-medium: 500;
+  --type-weight-semibold: 600;
+  --type-weight-bold: 700;
+
+  /* ============================================
+     TYPE — SIZE
+     ============================================ */
+  --type-size-display-xl: clamp(2.75rem, 8vw, 5rem);
+  --type-size-display: clamp(2rem, 5vw, 3.5rem);
+  --type-size-display-sm: clamp(1.5rem, 4vw, 2.5rem);
+  --type-size-heading: clamp(1.5rem, 3vw, 2.25rem);
+  --type-size-subheading: clamp(1.125rem, 2vw, 1.5rem);
+  --type-size-lead: clamp(1.125rem, 2vw, 1.375rem);
+  --type-size-body: 1.0625rem;
+  --type-size-body-lg: 1.25rem;
+  --type-size-label: 0.8125rem;
+  --type-size-label-lg: 0.875rem;
+  --type-size-eyebrow: 0.6875rem;
+  --type-size-caption: 0.75rem;
+  --type-size-nav: 0.875rem;
+  --type-size-brand-wordmark: 0.75rem;
+  --type-size-brand-wordmark-sm: 0.625rem;
+  --type-size-brand-wordmark-lg: 0.875rem;
+  --type-size-museum-number: clamp(5rem, 12vw, 10rem);
+
+  /* ============================================
+     TYPE — LINE HEIGHT
+     ============================================ */
+  --type-line-height-tight: 1.1;
+  --type-line-height-display: 1.12;
+  --type-line-height-heading: 1.15;
+  --type-line-height-subheading: 1.25;
+  --type-line-height-snug: 1.3;
+  --type-line-height-normal: 1.5;
+  --type-line-height-body: 1.7;
+  --type-line-height-prose: 1.75;
+  --type-line-height-relaxed: 1.85;
+  --type-line-height-loose: 2.0;
+  --type-line-height-georgian: 1.85;
+  --type-line-height-georgian-heading: 1.45;
+
+  /* ============================================
+     TYPE — LETTER SPACING
+     ============================================ */
+  --type-tracking-tighter: -0.02em;
+  --type-tracking-tight: -0.01em;
+  --type-tracking-slight: -0.005em;
+  --type-tracking-normal: 0;
+  --type-tracking-slight-wide: 0.01em;
+  --type-tracking-wide: 0.04em;
+  --type-tracking-wider: 0.06em;
+  --type-tracking-widest: 0.08em;
+  --type-tracking-eyebrow: 0.12em;
+  --type-tracking-brand: 0.18em;
+
+  /* ============================================
+     SPACE — SCALE
+     ============================================ */
+  --space-0: 0;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+  --space-40: 10rem;
+  --space-48: 12rem;
+  --space-64: 16rem;
+
+  /* ============================================
+     SPACE — SECTION
+     ============================================ */
+  --space-section-vast: clamp(8rem, 15vw, 16rem);
+  --space-section-generous: clamp(5rem, 10vw, 10rem);
+  --space-section-intimate: clamp(3rem, 6vw, 5rem);
+  --space-section-forum-vast: clamp(5rem, 10vw, 8rem);
+  --space-section-forum-generous: clamp(3rem, 6vw, 5rem);
+  --space-section-forum-intimate: clamp(2rem, 4vw, 3rem);
+  --space-section-museum: clamp(4rem, 10vw, 8rem);
+  --space-section-museum-gap: clamp(2rem, 5vw, 4rem);
+
+  /* ============================================
+     SPACE — STACK
+     ============================================ */
+  --space-stack-tight: 0.75rem;
+  --space-stack-default: 1.5rem;
+  --space-stack-loose: 2.5rem;
+
+  /* ============================================
+     SPACE — CARD
+     ============================================ */
+  --space-card-padding: clamp(1.25rem, 3vw, 2rem);
+
+  /* ============================================
+     SPACE — EXHIBITION
+     ============================================ */
+  --space-image-silence: clamp(4rem, 8vw, 8rem);
+
+  /* ============================================
+     SPACE — CONTAINER
+     ============================================ */
+  --space-container-prose: 44ch;
+  --space-container-content: 65ch;
+  --space-container-max: 1400px;
+
+  /* ============================================
+     RADIUS
+     ============================================ */
+  --radius: 0;
+
+  /* ============================================
+     BORDER — WIDTH
+     ============================================ */
+  --border-width-default: 1px;
+  --border-width-active: 1px;
+
+  /* ============================================
+     ELEVATION
+     ============================================ */
+  --elevation-0-bg: hsl(220 60% 10%);
+  --elevation-0-shadow: none;
+  --elevation-1-bg: hsl(220 55% 13%);
+  --elevation-1-shadow: 0 1px 0 0 hsl(0 0% 100% / 0.04);
+  --elevation-2-bg: hsl(220 50% 15%);
+  --elevation-2-shadow: 0 1px 0 0 hsl(0 0% 100% / 0.06), 0 8px 24px -8px hsl(220 60% 5% / 0.5);
+  --elevation-3-bg: hsl(220 45% 17%);
+  --elevation-3-shadow: 0 1px 0 0 hsl(0 0% 100% / 0.08), 0 16px 48px -12px hsl(220 60% 5% / 0.7);
+  --elevation-card-hover-shadow: 0 8px 32px -8px hsl(220 60% 5% / 0.6);
+  --elevation-card-active-shadow: 0 12px 40px -8px hsl(220 60% 5% / 0.7);
+
+  /* ============================================
+     MOTION — DURATION
+     ============================================ */
+  --motion-duration-fast: 0.25s;
+  --motion-duration-normal: 0.4s;
+  --motion-duration-slow: 0.6s;
+  --motion-duration-slower: 0.8s;
+  --motion-duration-settle: 0.7s;
+  --motion-duration-exhibition: 1.2s;
+  --motion-duration-exhibition-slow: 1.8s;
+  --motion-duration-ken-burns: 18s;
+
+  /* ============================================
+     MOTION — EASING
+     ============================================ */
+  --motion-easing-default: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-easing-slow: cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-easing-standard: ease;
+  --motion-easing-ease-out: ease-out;
+
+  /* ============================================
+     MOTION — STAGGER
+     ============================================ */
+  --motion-stagger-standard: 100ms;
+  --motion-stagger-exhibition: 200ms;
+}

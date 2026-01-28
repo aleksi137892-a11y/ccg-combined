@@ -1,0 +1,43 @@
+import React from 'react';
+import Layout from '@/components/layout/Layout';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { Lock } from 'lucide-react';
+
+const SourceProtection: React.FC = () => {
+  const { language } = useLanguage();
+
+  return (
+    <Layout>
+      <div className="min-h-screen bg-background">
+        <div className="container mx-auto px-4 py-16 md:py-24">
+          <div className="max-w-3xl mx-auto">
+            <div className={`text-center mb-12 ${language === 'ge' ? 'font-georgian' : ''}`}>
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-navy/10 dark:bg-navy-pale mb-6">
+                <Lock className="w-8 h-8 text-navy dark:text-primary-foreground" />
+              </div>
+              <h1 className="font-display text-display-sm text-foreground mb-4">
+                {language === 'en' ? 'How We Protect Sources' : 'როგორ ვიცავთ წყაროებს'}
+              </h1>
+              <p className="text-body text-muted-foreground">
+                {language === 'en'
+                  ? 'Our methodology for protecting the identity and safety of those who provide information.'
+                  : 'ჩვენი მეთოდოლოგია მათი ვინაობისა და უსაფრთხოების დასაცავად, ვინც ინფორმაციას გვაწვდის.'}
+              </p>
+            </div>
+
+            <div className="bg-muted/30 border border-border p-8 text-center">
+              <p className={`text-lg text-foreground mb-2 ${language === 'ge' ? 'font-georgian' : ''}`}>
+                {language === 'en' ? 'Source Protection Guidelines' : 'წყაროების დაცვის სახელმძღვანელო'}
+              </p>
+              <p className={`text-muted-foreground ${language === 'ge' ? 'font-georgian' : ''}`}>
+                {language === 'en' ? 'Coming Soon' : 'მალე'}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Layout>
+  );
+};
+
+export default SourceProtection;

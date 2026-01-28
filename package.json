@@ -1,0 +1,22 @@
+{
+  "name": "ccg-combined",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Civic Council of Georgia - Combined Platform",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=apps/main-site",
+    "dev:iimg": "npm run dev --workspace=apps/iimg-portal",
+    "build": "npm run build --workspaces --if-present",
+    "build:main": "npm run build --workspace=apps/main-site",
+    "build:iimg": "npm run build --workspace=apps/iimg-portal",
+    "lint": "npm run lint --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

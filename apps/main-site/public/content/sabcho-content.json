@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "exportedAt": "2026-01-07T00:00:00.000Z",
+    "version": "1.0.0",
+    "institution": {
+      "name": "Civic Council of Georgia",
+      "nameGe": "საქართველოს სამოქალაქო საბჭო",
+      "domain": "sabcho.org"
+    },
+    "languages": ["en", "ge"],
+    "contentSections": [
+      "about",
+      "charter",
+      "methodology",
+      "standards",
+      "transparency",
+      "funding",
+      "press",
+      "privacy",
+      "accessibility",
+      "terms",
+      "triage",
+      "sitemap"
+    ],
+    "totalSections": 12,
+    "note": "This is a static snapshot. For real-time content, use the contentExport utility or fetch from the application."
+  },
+  "schema": {
+    "about": {
+      "description": "Mission, doctrine, origin story, infrastructure, and closing vow",
+      "fields": ["meta", "hero", "sections", "whatWeBuild", "legitimacy", "closing"]
+    },
+    "charter": {
+      "description": "Constitutional articles I-VII defining governance and principles",
+      "fields": ["meta", "epigraph", "jumpToItems", "articles", "footerLinks"]
+    },
+    "methodology": {
+      "description": "Evidence standards, verification protocols, and confidence labels",
+      "fields": ["header", "intro", "sections", "confidenceLabels", "footer"]
+    },
+    "standards": {
+      "description": "Operational scope, principles, triage, OSINT, and protection policies",
+      "fields": ["meta", "jumpToItems", "preamble", "sections", "footerLinks"]
+    },
+    "transparency": {
+      "description": "Commitments, funding disclosure, governance metrics",
+      "fields": ["meta", "callouts", "sections"]
+    },
+    "funding": {
+      "description": "Refusal architecture, acceptance criteria, due diligence",
+      "fields": ["meta", "callouts", "sections"]
+    },
+    "press": {
+      "description": "Media relations, attribution guidelines, press kit, FAQ",
+      "fields": ["meta", "callouts", "sections"]
+    },
+    "privacy": {
+      "description": "Data collection, retention, security, and rights",
+      "fields": ["meta", "callouts", "sections"]
+    },
+    "accessibility": {
+      "description": "WCAG 2.2 AA compliance, features, and known limitations",
+      "fields": ["meta", "callouts", "sections"]
+    },
+    "terms": {
+      "description": "Acceptable use, submissions, IP, liability",
+      "fields": ["meta", "safetyCallout", "sections"]
+    },
+    "triage": {
+      "description": "User role selection, secure channels, quick links",
+      "fields": ["welcome", "placeholder", "roles", "safety", "secureHotlines", "quickLinks"]
+    },
+    "sitemap": {
+      "description": "Route registry, navigation structure, external links",
+      "fields": ["meta", "routes", "externalLinks", "navigationStructure", "categories"]
+    }
+  },
+  "fetchInstructions": {
+    "staticFile": "GET /content/sabcho-content.json",
+    "programmatic": "import { masterContent } from '@/data'; or import { exportContentAsJSON } from '@/lib/contentExport';",
+    "documentation": "All content is bilingual (English/Georgian). English fields use standard names; Georgian fields append 'Ge' suffix (e.g., title/titleGe)."
+  }
+}

@@ -1,0 +1,1467 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   BESPOKE TYPOGRAPHY SYSTEM
+   Domaine Display - Institutional Branding
+   Tiempos Headline - Display/Headings
+   Tiempos Text - Body/Editorial
+   National 2 - UI/Navigation
+   ============================================ */
+
+@font-face {
+  font-family: 'Domaine Display';
+  src: url('/fonts/DomaineDisplay-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Test Domaine Display fonts for SVG wordmark */
+@font-face {
+  font-family: 'TestDomaineDisplay-Bold';
+  src: url('/fonts/TestDomaineDisplay-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Test Domaine Display';
+  src: url('/fonts/TestDomaineDisplay-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TestDomaineDisplay-Semibold';
+  src: url('/fonts/TestDomaineDisplay-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Test Domaine Display';
+  src: url('/fonts/TestDomaineDisplay-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('/fonts/TiemposHeadline-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('/fonts/TiemposHeadline-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tiempos Text';
+  src: url('/fonts/TiemposText-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tiempos Text';
+  src: url('/fonts/TiemposText-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'National 2';
+  src: url('/fonts/National2-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'National 2';
+  src: url('/fonts/National2-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'National 2';
+  src: url('/fonts/National2-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 60% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 60% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 60% 10%;
+
+    --primary: 220 60% 15%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 20% 97%;
+    --secondary-foreground: 220 60% 15%;
+
+    --muted: 220 15% 94%;
+    --muted-foreground: 220 15% 45%;
+
+    --accent: 220 60% 15%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 220 60% 15%;
+
+    --radius: 0;
+
+    /* Navy palette - always dark, not theme-dependent */
+    --navy: 220 60% 10%;
+    --navy-light: 220 50% 18%;
+    --navy-pale: 220 20% 97%;
+    --navy-foreground: 0 0% 100%;
+
+    /* Parchment - warm authority background */
+    --parchment: 220 20% 97%;
+  }
+
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Tiempos Text', Georgia, 'Times New Roman', serif;
+    font-size: 18px;
+    line-height: 1.7;
+    font-weight: 400;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Tiempos Headline', Georgia, 'Times New Roman', serif;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    font-weight: 400;
+  }
+
+  /* Georgian text - enhanced for readability */
+  :lang(ka), .font-georgian {
+    font-family: 'Noto Serif Georgian', Georgia, serif;
+    letter-spacing: 0.01em;
+    word-spacing: 0.05em;
+    line-height: 1.85;
+  }
+
+  /* Georgian headings need more breathing room */
+  h1.font-georgian, h2.font-georgian, h3.font-georgian {
+    letter-spacing: 0.02em;
+    word-spacing: 0.08em;
+    line-height: 1.45;
+  }
+
+  /* Large Georgian display text */
+  .font-georgian.text-5xl,
+  .font-georgian.text-6xl,
+  .font-georgian.text-7xl,
+  .font-georgian.text-8xl,
+  .font-georgian.md\:text-7xl,
+  .font-georgian.lg\:text-8xl {
+    letter-spacing: 0.015em;
+    word-spacing: 0.1em;
+    line-height: 1.25;
+  }
+
+  p {
+    margin-bottom: 1.5em;
+    text-rendering: optimizeLegibility;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  em, i {
+    font-style: italic;
+  }
+
+  strong, b {
+    font-weight: 600;
+  }
+
+  ::selection {
+    background: hsl(var(--navy));
+    color: white;
+  }
+}
+
+@layer utilities {
+  /* Bespoke Typography: Domaine Display + Tiempos + National 2 */
+  
+  /* Institutional Branding - Domaine Display for "CIVIC COUNCIL OF GEORGIA" */
+  .font-brand {
+    font-family: 'Domaine Display', Georgia, serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* Branded wordmark classes */
+  .text-brand-wordmark {
+    font-family: 'Domaine Display', Georgia, serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+  }
+
+  .text-brand-wordmark-sm {
+    font-family: 'Domaine Display', Georgia, serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.625rem;
+  }
+
+  .text-brand-wordmark-lg {
+    font-family: 'Domaine Display', Georgia, serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.875rem;
+  }
+
+  /* Navy on white backgrounds */
+  .text-brand-navy {
+    color: hsl(var(--navy));
+  }
+
+  /* Cream/parchment on navy - uses filter like logo */
+  .text-brand-cream {
+    color: hsl(45 20% 92%);
+    filter: sepia(0.15) saturate(1.2) brightness(0.96);
+  }
+
+  .font-display {
+    font-family: 'Tiempos Headline', Georgia, 'Times New Roman', serif;
+  }
+
+  .font-body {
+    font-family: 'Tiempos Text', Georgia, 'Times New Roman', serif;
+  }
+
+  .font-narrative {
+    font-family: 'Tiempos Text', Georgia, 'Times New Roman', serif;
+  }
+
+  .font-serif {
+    font-family: 'Tiempos Text', Georgia, 'Times New Roman', serif;
+  }
+
+  .font-ui {
+    font-family: 'National 2', system-ui, sans-serif;
+  }
+
+  .font-sans {
+    font-family: 'National 2', system-ui, sans-serif;
+  }
+
+  .font-georgian {
+    font-family: 'Noto Serif Georgian', Georgia, serif;
+    letter-spacing: 0.01em;
+    word-spacing: 0.05em;
+  }
+
+  .font-mono {
+    font-family: 'National 2', ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .bg-parchment {
+    background-color: hsl(var(--parchment));
+  }
+
+  .bg-navy-light {
+    background-color: hsl(var(--navy-light));
+  }
+
+  .text-navy {
+    color: hsl(var(--navy));
+  }
+
+  .bg-navy {
+    background-color: hsl(var(--navy));
+  }
+
+  .border-navy {
+    border-color: hsl(var(--navy));
+  }
+
+  /* Display typography */
+  .text-display-xl {
+    font-size: clamp(2.75rem, 8vw, 5rem);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    font-weight: 400;
+  }
+
+  .text-display {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    font-weight: 400;
+  }
+
+  .text-display-sm {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    font-weight: 400;
+  }
+
+  /* Epigraph - opening statements with gravitas */
+  .text-epigraph {
+    font-family: 'Tiempos Headline', Georgia, serif;
+    font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+    line-height: 1.55;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    color: hsl(var(--navy));
+  }
+
+  /* Declaration - formal statements with authority */
+  .text-declaration {
+    font-family: 'Tiempos Text', Georgia, serif;
+    font-size: 1.125rem;
+    line-height: 1.75;
+    font-weight: 400;
+    letter-spacing: 0.005em;
+    color: hsl(var(--navy) / 0.9);
+  }
+
+  /* Doctrine - philosophical passages */
+  .text-doctrine {
+    font-family: 'Tiempos Text', Georgia, serif;
+    font-size: 1.1875rem;
+    line-height: 1.85;
+    font-weight: 400;
+    letter-spacing: 0.002em;
+    color: hsl(var(--navy) / 0.85);
+  }
+
+  /* Marginalia - annotations and side notes */
+  .text-marginalia {
+    font-family: 'Tiempos Text', Georgia, serif;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    font-weight: 400;
+    color: hsl(var(--navy) / 0.5);
+  }
+
+  /* Section preamble - introductory context */
+  .text-preamble {
+    font-family: 'Tiempos Text', Georgia, serif;
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    font-weight: 400;
+    color: hsl(var(--navy) / 0.75);
+  }
+
+  /* Headline variations */
+  .text-headline {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    font-weight: 400;
+  }
+
+  .text-subhead {
+    font-size: 1.25rem;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+
+  /* Quote styling */
+  .quote-hero {
+    font-family: 'Tiempos Headline', Georgia, serif;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    line-height: 1.35;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  .quote-large {
+    font-family: 'Tiempos Headline', Georgia, serif;
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    line-height: 1.45;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .quote-medium {
+    font-family: 'Tiempos Text', Georgia, serif;
+    font-size: 1.375rem;
+    line-height: 1.5;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  /* Body text variations */
+  .text-body {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    font-weight: 400;
+  }
+
+  .text-body-lg {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    font-weight: 400;
+  }
+
+  .text-lead {
+    font-size: 1.375rem;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* UI Labels - National 2 for cohesive typography */
+  .text-nav {
+    font-family: 'National 2', system-ui, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+  }
+
+  .text-kicker {
+    font-family: 'National 2', system-ui, sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .text-label {
+    font-family: 'National 2', system-ui, sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+  }
+
+  .text-label-lg {
+    font-family: 'National 2', system-ui, sans-serif;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+  }
+
+  .text-caption {
+    font-family: 'Tiempos Text', Georgia, serif;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    font-weight: 400;
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* Decorative text */
+  .text-numeral {
+    font-family: 'Tiempos Headline', Georgia, serif;
+    font-weight: 400;
+    font-feature-settings: 'onum' 1;
+  }
+
+  .text-smallcaps {
+    font-variant: small-caps;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+  }
+
+  /* Drop caps */
+  .drop-cap::first-letter {
+    float: left;
+    font-family: 'Tiempos Headline', Georgia, serif;
+    font-size: 4.5em;
+    line-height: 0.85;
+    padding-right: 0.08em;
+    margin-top: 0.05em;
+    font-weight: 400;
+    color: hsl(var(--navy));
+  }
+
+  /* Button styles */
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-navy text-primary-foreground font-sans text-label px-8 py-4 hover:opacity-90 transition-opacity;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center border border-foreground text-foreground font-sans text-label px-8 py-4 hover:bg-foreground hover:text-background transition-colors;
+  }
+
+  .btn-link {
+    @apply font-sans text-label text-foreground border-b border-foreground pb-0.5 hover:opacity-70 transition-opacity;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .forum-kenburns {
+    animation: forumKenBurns 18s ease-in-out infinite alternate;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .forum-kenburns {
+      animation: none;
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes forumKenBurns {
+    from { transform: scale(1) translate3d(0, 0, 0); }
+    to { transform: scale(1.08) translate3d(-2%, -2%, 0); }
+  }
+
+  /* Weighted "settling" animation for institutional gravity */
+  @keyframes settleIn {
+    0% { 
+      opacity: 0; 
+      transform: translateY(24px); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  .animate-settle {
+    animation: settleIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  .animate-settle-delay-1 {
+    animation: settleIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
+    opacity: 0;
+  }
+
+  .animate-settle-delay-2 {
+    animation: settleIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+    opacity: 0;
+  }
+
+  .animate-settle-delay-3 {
+    animation: settleIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+    opacity: 0;
+  }
+
+  /* Museum typography system */
+  .text-museum-display {
+    font-family: 'Tiempos Headline', Georgia, serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    font-weight: 400;
+  }
+
+  .text-museum-heading {
+    font-family: 'Tiempos Headline', Georgia, serif;
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    font-weight: 400;
+  }
+
+  .text-museum-subheading {
+    font-family: 'Tiempos Headline', Georgia, serif;
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    font-weight: 400;
+  }
+
+  .text-museum-eyebrow {
+    font-family: 'National 2', system-ui, sans-serif;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: hsl(var(--navy) / 0.4);
+  }
+
+  .text-museum-body {
+    font-family: 'Tiempos Text', Georgia, serif;
+    font-size: 1.0625rem;
+    line-height: 1.85;
+    color: hsl(var(--navy) / 0.7);
+  }
+
+  .text-museum-number {
+    font-family: 'Tiempos Headline', Georgia, serif;
+    font-size: clamp(5rem, 12vw, 10rem);
+    font-weight: 400;
+    color: hsl(var(--navy) / 0.04);
+    line-height: 1;
+  }
+
+  .text-pullquote {
+    font-family: 'Tiempos Headline', Georgia, serif;
+    font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+    line-height: 1.5;
+    font-style: italic;
+    color: hsl(var(--navy) / 0.65);
+  }
+
+  /* Museum spacing */
+  .museum-section {
+    @apply py-20 md:py-32;
+  }
+
+  .museum-gap {
+    @apply py-16 md:py-24;
+  }
+}
+
+/* Print styles for institutional pages */
+@media print {
+  /* Hide navigation and interactive elements */
+  header,
+  footer,
+  nav,
+  .no-print,
+  button,
+  [role="navigation"] {
+    display: none !important;
+  }
+
+  /* Reset backgrounds and colors for print */
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 11pt !important;
+    line-height: 1.5 !important;
+  }
+
+  article {
+    background: white !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Ensure text is black for readability */
+  h1, h2, h3, h4, h5, h6,
+  p, li, span, div {
+    color: black !important;
+  }
+
+  /* Subtle gray for secondary text */
+  .text-navy\/40,
+  .text-navy\/50,
+  .text-navy\/60,
+  .text-navy\/70 {
+    color: #444 !important;
+  }
+
+  /* Page break controls */
+  h1, h2, h3 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  p, li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Accordion content - show all for print */
+  [data-state="closed"] > [data-radix-accordion-content] {
+    display: block !important;
+    height: auto !important;
+  }
+
+  /* Links - show URL */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #666;
+  }
+
+  /* Internal links - no URL suffix */
+  a[href^="/"]::after {
+    content: none;
+  }
+
+  /* Container adjustments */
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Remove shadows and decorative borders */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Ensure proper margins for print */
+  @page {
+    margin: 1in;
+  }
+
+  /* First page title area */
+  @page :first {
+    margin-top: 0.5in;
+  }
+}
+
+/* Subtle pulse animation for search icon */
+@keyframes subtle-pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-subtle-pulse {
+  animation: subtle-pulse 3s ease-in-out infinite;
+}
+
+/* ============================================
+   EXHIBITION TYPOGRAPHY SYSTEM
+   Museum-grade, wall-text inspired typography
+   ============================================ */
+
+/* Display - hero moments, rare usage */
+.text-exhibition-display {
+  font-family: 'Tiempos Headline', Georgia, serif;
+  font-size: clamp(2.75rem, 7vw, 4.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+  color: hsl(var(--navy));
+}
+
+/* Heading - section anchors */
+.text-exhibition-heading {
+  font-family: 'Tiempos Headline', Georgia, serif;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+  color: hsl(var(--navy));
+}
+
+/* Subheading - supporting hierarchy */
+.text-exhibition-subheading {
+  font-family: 'Tiempos Text', Georgia, serif;
+  font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+  color: hsl(var(--navy));
+}
+
+/* Section - smaller section titles */
+.text-exhibition-section {
+  font-family: 'Tiempos Text', Georgia, serif;
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  line-height: 1.35;
+  letter-spacing: 0;
+  font-weight: 500;
+  color: hsl(var(--navy));
+}
+
+/* Eyebrow - quiet labels above headings */
+.text-exhibition-eyebrow {
+  font-family: 'National 2', system-ui, sans-serif;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 500;
+  color: hsl(var(--navy) / 0.35);
+}
+
+/* Body - primary prose */
+.text-exhibition-body {
+  font-family: 'Tiempos Text', Georgia, serif;
+  font-size: 1.125rem;
+  line-height: 1.9;
+  font-weight: 400;
+  color: hsl(var(--navy) / 0.75);
+}
+
+/* Lead - introductory paragraphs */
+.text-exhibition-lead {
+  font-family: 'Tiempos Text', Georgia, serif;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  line-height: 1.85;
+  font-weight: 400;
+  color: hsl(var(--navy) / 0.8);
+}
+
+/* Wall text - extended prose, museum catalogue style */
+.text-exhibition-wall-text {
+  font-family: 'Tiempos Text', Georgia, serif;
+  font-size: 1.0625rem;
+  line-height: 2.0;
+  font-weight: 400;
+  color: hsl(var(--navy) / 0.7);
+}
+
+/* Caption - image captions, annotations */
+.text-exhibition-caption {
+  font-family: 'Tiempos Text', Georgia, serif;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+  color: hsl(var(--navy) / 0.5);
+}
+
+/* Quote variants */
+.text-exhibition-quote {
+  font-family: 'Tiempos Headline', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.375rem, 3vw, 1.875rem);
+  line-height: 1.5;
+  font-weight: 400;
+  color: hsl(var(--navy) / 0.8);
+}
+
+.text-exhibition-quote-lg {
+  font-family: 'Tiempos Headline', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.625rem, 4vw, 2.25rem);
+  line-height: 1.45;
+  font-weight: 400;
+  color: hsl(var(--navy) / 0.8);
+}
+
+.text-exhibition-quote-sm {
+  font-family: 'Tiempos Headline', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  line-height: 1.55;
+  font-weight: 400;
+  color: hsl(var(--navy) / 0.75);
+}
+
+/* ============================================
+   EXHIBITION LINK STYLES
+   Restrained, underline-based interactions
+   ============================================ */
+
+.exhibition-link-inline {
+  position: relative;
+  color: hsl(var(--navy));
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+
+.exhibition-link-inline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.25;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.exhibition-link-inline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.exhibition-link-standalone {
+  position: relative;
+  display: inline-block;
+  color: hsl(var(--navy));
+  font-family: 'Tiempos Text', Georgia, serif;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 1px solid hsl(var(--navy) / 0.2);
+  transition: border-color 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.exhibition-link-standalone:hover {
+  border-color: hsl(var(--navy) / 0.6);
+}
+
+.exhibition-link-quiet {
+  color: hsl(var(--navy) / 0.5);
+  text-decoration: none;
+  text-underline-offset: 3px;
+  transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.exhibition-link-quiet:hover {
+  color: hsl(var(--navy) / 0.8);
+}
+
+/* ============================================
+   EXHIBITION SPACING UTILITIES
+   Generous, room-like vertical rhythm
+   ============================================ */
+
+.exhibition-space-vast {
+  padding-top: clamp(8rem, 15vw, 16rem);
+  padding-bottom: clamp(8rem, 15vw, 16rem);
+}
+
+.exhibition-space-generous {
+  padding-top: clamp(5rem, 10vw, 10rem);
+  padding-bottom: clamp(5rem, 10vw, 10rem);
+}
+
+.exhibition-space-intimate {
+  padding-top: clamp(3rem, 6vw, 5rem);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+/* Image silence - space around artifacts */
+.exhibition-image-silence {
+  margin-top: clamp(4rem, 8vw, 8rem);
+  margin-bottom: clamp(4rem, 8vw, 8rem);
+}
+
+/* Pause marker - visual breath between sections */
+.exhibition-pause {
+  position: relative;
+}
+
+.exhibition-pause::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1px;
+  height: 60px;
+  background: hsl(var(--navy) / 0.1);
+}
+
+/* ============================================
+   LEGACY MUSEUM TYPOGRAPHY (preserved for compatibility)
+   ============================================ */
+
+.text-museum-display {
+  font-family: 'Tiempos Headline', Georgia, serif;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+}
+
+.text-museum-heading {
+  font-family: 'Tiempos Headline', Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+}
+
+.text-museum-subheading {
+  font-family: 'Tiempos Text', Georgia, serif;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+}
+
+.text-museum-eyebrow {
+  font-family: 'National 2', system-ui, sans-serif;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  color: hsl(var(--navy) / 0.4);
+}
+
+.text-museum-body {
+  font-family: 'Tiempos Text', Georgia, serif;
+  font-size: 1.125rem;
+  line-height: 1.85;
+  font-weight: 400;
+  color: hsl(var(--navy) / 0.7);
+}
+
+.text-museum-number {
+  font-family: 'Tiempos Headline', Georgia, serif;
+  font-size: clamp(5rem, 12vw, 10rem);
+  font-weight: 400;
+  line-height: 0.9;
+  color: hsl(var(--navy) / 0.04);
+}
+
+.text-pullquote {
+  font-family: 'Tiempos Headline', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.25rem, 3vw, 1.875rem);
+  line-height: 1.4;
+  font-weight: 400;
+  color: hsl(var(--navy) / 0.8);
+}
+
+/* Museum spacing utilities */
+.museum-section {
+  padding-top: clamp(4rem, 10vw, 8rem);
+  padding-bottom: clamp(4rem, 10vw, 8rem);
+}
+
+.museum-gap {
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+/* ==========================================================================
+   FORUM FOR JUSTICE DESIGN SYSTEM
+   ========================================================================== */
+
+/* -----------------------------------------------------------------------------
+   Forum Color Vocabulary
+   Navy-based palette for operational/headquarters aesthetic
+----------------------------------------------------------------------------- */
+
+/* Background layers - from deepest to most elevated */
+.forum-bg-base { background: hsl(220 60% 10%); }
+.forum-bg-elevated { background: hsl(220 55% 13%); }
+.forum-bg-surface { background: hsl(220 50% 16%); }
+.forum-bg-accent { background: hsl(45 20% 97%); }
+
+/* Border hierarchy */
+.forum-border-quiet { border-color: hsl(0 0% 100% / 0.06); }
+.forum-border-subtle { border-color: hsl(0 0% 100% / 0.12); }
+.forum-border-visible { border-color: hsl(0 0% 100% / 0.2); }
+.forum-border-active { border-color: hsl(0 0% 100% / 0.35); }
+
+/* Text hierarchy on dark backgrounds */
+.forum-text-primary { color: hsl(0 0% 100%); }
+.forum-text-secondary { color: hsl(0 0% 100% / 0.7); }
+.forum-text-tertiary { color: hsl(0 0% 100% / 0.45); }
+.forum-text-muted { color: hsl(0 0% 100% / 0.25); }
+
+/* -----------------------------------------------------------------------------
+   Forum Elevation System
+   Layered depth using background + subtle shadow
+----------------------------------------------------------------------------- */
+
+.forum-elevation-0 { 
+  background: hsl(220 60% 10%); 
+}
+
+.forum-elevation-1 { 
+  background: hsl(220 55% 13%);
+  box-shadow: 0 1px 0 0 hsl(0 0% 100% / 0.04);
+}
+
+.forum-elevation-2 { 
+  background: hsl(220 50% 15%);
+  box-shadow: 
+    0 1px 0 0 hsl(0 0% 100% / 0.06),
+    0 8px 24px -8px hsl(220 60% 5% / 0.5);
+}
+
+.forum-elevation-3 { 
+  background: hsl(220 45% 17%);
+  box-shadow: 
+    0 1px 0 0 hsl(0 0% 100% / 0.08),
+    0 16px 48px -12px hsl(220 60% 5% / 0.7);
+}
+
+/* -----------------------------------------------------------------------------
+   Forum Typography Scale
+   Dark-background optimized type styles
+----------------------------------------------------------------------------- */
+
+/* Display - major section anchors */
+.text-forum-display {
+  font-family: 'Tiempos Headline', Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: hsl(0 0% 100%);
+}
+
+/* Heading - subsection titles */
+.text-forum-heading {
+  font-family: 'Tiempos Headline', Georgia, serif;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: hsl(0 0% 100%);
+}
+
+/* Subheading - tertiary titles */
+.text-forum-subheading {
+  font-family: 'Tiempos Headline', Georgia, serif;
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  line-height: 1.3;
+  color: hsl(0 0% 100% / 0.9);
+}
+
+/* Lead - introductory prose */
+.text-forum-lead {
+  font-family: 'Tiempos Text', Georgia, serif;
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  line-height: 1.8;
+  color: hsl(0 0% 100% / 0.75);
+}
+
+/* Body - standard prose */
+.text-forum-body {
+  font-family: 'Tiempos Text', Georgia, serif;
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  color: hsl(0 0% 100% / 0.65);
+}
+
+/* Eyebrow - section labels */
+.text-forum-eyebrow {
+  font-family: 'National 2', system-ui, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: hsl(0 0% 100% / 0.4);
+}
+
+/* Label - UI labels, meta text */
+.text-forum-label {
+  font-family: 'National 2', system-ui, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: hsl(0 0% 100% / 0.6);
+}
+
+/* Caption - metadata, fine print */
+.text-forum-caption {
+  font-family: 'National 2', system-ui, sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: hsl(0 0% 100% / 0.4);
+}
+
+/* Number - large numerals for indicators */
+.text-forum-number {
+  font-family: 'Tiempos Headline', Georgia, serif;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+  letter-spacing: -0.02em;
+  color: hsl(0 0% 100% / 0.3);
+}
+
+/* -----------------------------------------------------------------------------
+   Forum Card Pattern
+   Interactive card with hover/active states
+----------------------------------------------------------------------------- */
+
+.forum-card {
+  position: relative;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: hsl(220 55% 13%);
+  border: 1px solid hsl(0 0% 100% / 0.08);
+  transition: 
+    background 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.forum-card:hover {
+  background: hsl(220 50% 15%);
+  border-color: hsl(0 0% 100% / 0.15);
+  box-shadow: 0 8px 32px -8px hsl(220 60% 5% / 0.6);
+}
+
+.forum-card--active,
+.forum-card.active {
+  background: hsl(220 45% 17%);
+  border-color: hsl(0 0% 100% / 0.25);
+  box-shadow: 0 12px 40px -8px hsl(220 60% 5% / 0.7);
+}
+
+.forum-card--interactive {
+  cursor: pointer;
+}
+
+.forum-card--interactive:hover {
+  transform: translateY(-2px);
+}
+
+.forum-card--interactive:active {
+  transform: translateY(0);
+  transition-duration: 0.1s;
+}
+
+/* -----------------------------------------------------------------------------
+   Forum Tab Pattern
+   Horizontal tab navigation
+----------------------------------------------------------------------------- */
+
+.forum-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid hsl(0 0% 100% / 0.1);
+}
+
+.forum-tab {
+  position: relative;
+  padding: 1rem 1.5rem;
+  font-family: 'National 2', system-ui, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: hsl(0 0% 100% / 0.5);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.forum-tab:hover {
+  color: hsl(0 0% 100% / 0.8);
+  background: hsl(0 0% 100% / 0.02);
+}
+
+.forum-tab--active,
+.forum-tab.active {
+  color: hsl(0 0% 100%);
+  border-bottom-color: hsl(0 0% 100%);
+}
+
+/* -----------------------------------------------------------------------------
+   Forum Divider Pattern
+   Subtle separators
+----------------------------------------------------------------------------- */
+
+.forum-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    hsl(0 0% 100% / 0.1) 20%,
+    hsl(0 0% 100% / 0.1) 80%,
+    transparent 100%
+  );
+}
+
+.forum-divider--solid {
+  background: hsl(0 0% 100% / 0.1);
+}
+
+.forum-divider--vertical {
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    hsl(0 0% 100% / 0.1) 20%,
+    hsl(0 0% 100% / 0.1) 80%,
+    transparent 100%
+  );
+}
+
+/* -----------------------------------------------------------------------------
+   Forum Section Spacing
+   Vertical rhythm for navy sections
+----------------------------------------------------------------------------- */
+
+.forum-section-vast { 
+  padding-top: clamp(5rem, 10vw, 8rem); 
+  padding-bottom: clamp(5rem, 10vw, 8rem); 
+}
+
+.forum-section-generous { 
+  padding-top: clamp(3rem, 6vw, 5rem); 
+  padding-bottom: clamp(3rem, 6vw, 5rem); 
+}
+
+.forum-section-intimate { 
+  padding-top: clamp(2rem, 4vw, 3rem); 
+  padding-bottom: clamp(2rem, 4vw, 3rem); 
+}
+
+/* -----------------------------------------------------------------------------
+   Forum Stack Spacing
+   Vertical rhythm for stacked content
+----------------------------------------------------------------------------- */
+
+.forum-stack > * + * { margin-top: 1.5rem; }
+.forum-stack-tight > * + * { margin-top: 0.75rem; }
+.forum-stack-loose > * + * { margin-top: 2.5rem; }
+
+/* -----------------------------------------------------------------------------
+   Forum Expand Pattern
+   Expand/collapse trigger styling
+----------------------------------------------------------------------------- */
+
+.forum-expand-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'National 2', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: hsl(0 0% 100% / 0.5);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.forum-expand-trigger:hover {
+  color: hsl(0 0% 100% / 0.8);
+}
+
+.forum-expand-trigger svg {
+  width: 12px;
+  height: 12px;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.forum-expand-trigger[aria-expanded="true"] svg,
+.forum-expand-trigger.expanded svg {
+  transform: rotate(90deg);
+}
+
+/* -----------------------------------------------------------------------------
+   Forum Progress Indicator
+   Horizontal progress bars and indicators
+----------------------------------------------------------------------------- */
+
+.forum-progress-track {
+  height: 2px;
+  background: hsl(0 0% 100% / 0.1);
+  overflow: hidden;
+}
+
+.forum-progress-fill {
+  height: 100%;
+  background: hsl(0 0% 100% / 0.6);
+  transform-origin: left;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* -----------------------------------------------------------------------------
+   Forum Stage Indicator
+   Numbered stage badges
+----------------------------------------------------------------------------- */
+
+.forum-stage-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.75rem;
+  height: 1.75rem;
+  padding: 0 0.5rem;
+  font-family: 'Tiempos Headline', Georgia, serif;
+  font-size: 0.875rem;
+  color: hsl(0 0% 100% / 0.4);
+  border: 1px solid hsl(0 0% 100% / 0.15);
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.forum-stage-number--active {
+  color: hsl(0 0% 100%);
+  border-color: hsl(0 0% 100% / 0.4);
+  background: hsl(0 0% 100% / 0.05);
+}
+
+/* -----------------------------------------------------------------------------
+   Forum Link Styles
+   Text links on dark backgrounds
+----------------------------------------------------------------------------- */
+
+.forum-link {
+  color: hsl(0 0% 100% / 0.7);
+  text-decoration: none;
+  border-bottom: 1px solid hsl(0 0% 100% / 0.2);
+  transition: all 0.3s ease;
+}
+
+.forum-link:hover {
+  color: hsl(0 0% 100%);
+  border-bottom-color: hsl(0 0% 100% / 0.5);
+}
+
+/* Arrow link variant */
+.forum-link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'National 2', system-ui, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: hsl(0 0% 100% / 0.6);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.forum-link-arrow:hover {
+  color: hsl(0 0% 100%);
+}
+
+.forum-link-arrow svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.forum-link-arrow:hover svg {
+  transform: translateX(3px);
+}

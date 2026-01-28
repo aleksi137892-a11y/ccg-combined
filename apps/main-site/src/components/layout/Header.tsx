@@ -653,7 +653,7 @@ const Header: React.FC<HeaderProps> = ({
           {/* Right: Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className={cn("p-2", isNavy ? "text-white" : "text-navy")}
+            className={cn("p-3 min-h-[44px] min-w-[44px] flex items-center justify-center", isNavy ? "text-white" : "text-navy")}
             aria-label="Open menu"
             aria-expanded={mobileMenuOpen}
           >
@@ -704,7 +704,7 @@ const Header: React.FC<HeaderProps> = ({
             <div className="flex items-center gap-2">
               <button
                 onClick={toggleLanguage}
-                className="flex items-center px-2 py-1.5 text-[11px] uppercase tracking-wider text-white"
+                className="flex items-center px-3 py-2 min-h-[44px] text-xs uppercase tracking-wider text-white"
               >
                 <span className={language === 'en' ? 'font-medium' : 'opacity-40'}>En</span>
                 <span className="opacity-30 mx-1">/</span>
@@ -712,7 +712,7 @@ const Header: React.FC<HeaderProps> = ({
               </button>
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-2 text-white"
+                className="p-3 min-h-[44px] min-w-[44px] flex items-center justify-center text-white"
                 aria-label="Close menu"
               >
                 <X className="h-5 w-5" />

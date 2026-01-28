@@ -118,7 +118,7 @@ export const ExpandableSearch: React.FC<ExpandableSearchProps> = ({ position }) 
           onKeyDown={handleKeyDown}
           placeholder={language === 'en' ? 'Search pages, records' : 'გვერდები, ჩანაწერები'}
           className={cn(
-            "w-full px-3 py-1.5 text-sm rounded-md border transition-colors outline-none",
+            "w-full px-3 py-2 text-base md:text-sm rounded-md border transition-colors outline-none min-h-[44px]",
             isHeader && "bg-background/80 border-border/50 text-foreground placeholder:text-muted-foreground focus:border-primary/50 focus:bg-background",
             isFooter && "bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-white/40 focus:bg-white/15",
             language === 'ge' && 'font-georgian'

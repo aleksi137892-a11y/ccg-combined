@@ -250,8 +250,8 @@ const Footer: React.FC = () => {
                 <Link
                   to={item.href}
                   className={cn(
-                    'relative px-2 py-1 text-white/60 hover:text-white/80 transition-colors',
-                    'after:absolute after:bottom-0 after:left-2 after:right-2 after:h-px after:bg-white/40',
+                    'relative px-3 py-2 min-h-[44px] inline-flex items-center text-white/60 hover:text-white/80 transition-colors',
+                    'after:absolute after:bottom-1 after:left-3 after:right-3 after:h-px after:bg-white/40',
                     'after:scale-x-0 after:origin-right after:transition-transform after:duration-300',
                     'hover:after:scale-x-100 hover:after:origin-left',
                     language === 'ge' ? 'font-georgian' : ''
@@ -425,18 +425,18 @@ const Footer: React.FC = () => {
               <ExpandableSearch position="footer" />
               
               {/* Legal Links */}
-              <ul className="flex flex-wrap items-center gap-x-1 gap-y-1 justify-end">
+              <ul className="flex flex-wrap items-center gap-x-0.5 gap-y-1 justify-end">
                 {FOOTER_DATA.legalLinks.map((link, idx) => (
                   <React.Fragment key={idx}>
                     {idx > 0 && (
-                      <span className="text-white/20">|</span>
+                      <span className="text-white/20 hidden sm:inline">|</span>
                     )}
                     <li>
                       <Link
                         to={link.href}
                         className={cn(
-                          'relative px-1 text-[11px] text-white/50 hover:text-white/60 transition-colors',
-                          'after:absolute after:bottom-0 after:left-1 after:right-1 after:h-px after:bg-white/40',
+                          'relative px-2 py-2 min-h-[44px] inline-flex items-center text-xs text-white/50 hover:text-white/60 transition-colors',
+                          'after:absolute after:bottom-1 after:left-2 after:right-2 after:h-px after:bg-white/40',
                           'after:scale-x-0 after:origin-right after:transition-transform after:duration-300',
                           'hover:after:scale-x-100 hover:after:origin-left',
                           language === 'ge' ? 'font-georgian' : ''

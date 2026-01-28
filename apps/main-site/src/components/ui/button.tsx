@@ -20,11 +20,11 @@ const buttonVariants = cva(
         nav: "text-foreground/80 hover:text-foreground hover:bg-transparent font-medium",
       },
       size: {
-        default: "h-10 px-5 py-2",
-        sm: "h-9 px-4",
-        lg: "h-11 px-8",
-        xl: "h-14 px-10 text-lg",
-        icon: "h-10 w-10",
+        default: "h-11 px-5 py-2 min-h-[44px]",
+        sm: "h-11 px-4 min-h-[44px]",
+        lg: "h-12 px-8 min-h-[44px]",
+        xl: "h-14 px-10 text-lg min-h-[44px]",
+        icon: "h-11 w-11 min-h-[44px] min-w-[44px]",
       },
     },
     defaultVariants: {

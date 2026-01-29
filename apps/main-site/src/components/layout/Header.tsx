@@ -54,6 +54,7 @@ interface NavItem {
   sections: NavSection[];
   featured: FeaturedCard;
   isTabbed?: boolean;
+  isExternal?: boolean;
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -206,33 +207,35 @@ const NAV_DATA: NavItem[] = [
     id: 'rustaveli',
     label: 'Rustaveli Project',
     labelGe: 'რუსთაველის პროექტი',
-    href: '/rustaveli',
-    intro: 'Safeguarding civic inheritance — memory, language, dignity.',
-    introGe: 'სამოქალაქო მემკვიდრეობის დაცვა — მეხსიერება, ენა, ღირსება.',
+    href: 'https://rustaveli.sabcho.org',
+    isExternal: true,
+    intro: 'A digital memorial documenting Georgia's 2024 democracy movement. Eight centuries of moral courage, from Shota Rustaveli to the streets of Tbilisi.',
+    introGe: 'ციფრული მემორიალი, რომელიც ასახავს საქართველოს 2024 წლის დემოკრატიულ მოძრაობას. რვა საუკუნის მორალური სიმამაცე.',
     sections: [
       {
-        heading: 'Heritage',
-        headingGe: 'მემკვიდრეობა',
+        heading: 'Exhibition',
+        headingGe: 'გამოფენა',
         links: [
-          { label: 'The Project', labelGe: 'პროექტი', href: '/rustaveli' },
-          { label: 'Heritage Canon', labelGe: 'მემკვიდრეობის კანონი', href: '/rustaveli/canon' },
+          { label: 'Photo Essay', labelGe: 'ფოტო ესე', href: 'https://rustaveli.sabcho.org' },
+          { label: 'Memorial Wall', labelGe: 'მემორიალური კედელი', href: 'https://rustaveli.sabcho.org/movement-of-dignity' },
         ],
       },
       {
-        heading: 'Movement',
-        headingGe: 'მოძრაობა',
+        heading: 'Registry',
+        headingGe: 'რეესტრი',
         links: [
-          { label: 'Join the Movement', labelGe: 'შეუერთდი მოძრაობას', href: '/rustaveli/join' },
-          { label: 'Solidarity Pledge', labelGe: 'სოლიდარობის აღთქმა', href: '/rustaveli/pledge' },
+          { label: 'Acts of Courage', labelGe: 'სიმამაცის აქტები', href: 'https://rustaveli.sabcho.org/registry' },
+          { label: 'Join the Community', labelGe: 'შეუერთდი საზოგადოებას', href: 'https://rustaveli.sabcho.org/community' },
         ],
       },
     ],
     featured: {
-      title: 'The Canon',
-      titleGe: 'კანონი',
-      description: 'Essential texts of Georgian civic identity.',
-      descriptionGe: 'ქართული სამოქალაქო იდენტობის აუცილებელი ტექსტები.',
-      href: '/rustaveli/canon',
+      title: 'Enter the Exhibition',
+      titleGe: 'შედი გამოფენაზე',
+      description: 'Constitution + protest photography. A cinematic scrollytelling experience.',
+      descriptionGe: 'კონსტიტუცია + საპროტესტო ფოტოგრაფია. კინემატოგრაფიული გამოცდილება.',
+      href: 'https://rustaveli.sabcho.org',
+      isExternal: true,
     },
   },
 ];
@@ -595,28 +598,45 @@ const Header: React.FC<HeaderProps> = ({
             role="navigation"
             aria-label="Secondary navigation"
           >
-            {NAV_DATA.slice(2).map((item) => (
-              <div
-                key={item.id}
-                onMouseEnter={() => handleMenuEnter(item.id)}
-                onMouseLeave={handleMenuLeave}
-              >
-                <Link
-                  to={langPrefix + (item.href || '/')}
+            {NAV_DATA.slice(2).map((item) => {
+              const linkClassName = cn(
+                'py-2 text-nav font-sans transition-colors duration-200 flex items-center gap-1',
+                isNavy
+                  ? (activeMenu === item.id ? 'text-white font-semibold' : 'text-white/80 hover:text-white font-medium')
+                  : (activeMenu === item.id ? 'text-navy font-semibold' : 'text-navy hover:text-navy/70 font-medium'),
+                language === 'ge' ? 'font-georgian' : ''
+              );
+              
+              return (
+                <div
+                  key={item.id}
                   onMouseEnter={() => handleMenuEnter(item.id)}
-                  className={cn(
-                    'py-2 text-nav font-sans transition-colors duration-200 flex items-center gap-1',
-                    isNavy
-                      ? (activeMenu === item.id ? 'text-white font-semibold' : 'text-white/80 hover:text-white font-medium')
-                      : (activeMenu === item.id ? 'text-navy font-semibold' : 'text-navy hover:text-navy/70 font-medium'),
-                    language === 'ge' ? 'font-georgian' : ''
-                  )}
+                  onMouseLeave={handleMenuLeave}
                 >
-                  {getLabel(item)}
-                  <ChevronRight className="h-3 w-3 opacity-40 -rotate-90" />
-                </Link>
-              </div>
-            ))}
+                  {item.isExternal ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onMouseEnter={() => handleMenuEnter(item.id)}
+                      className={linkClassName}
+                    >
+                      {getLabel(item)}
+                      <ExternalLink className="h-3 w-3 opacity-40" />
+                    </a>
+                  ) : (
+                    <Link
+                      to={langPrefix + (item.href || '/')}
+                      onMouseEnter={() => handleMenuEnter(item.id)}
+                      className={linkClassName}
+                    >
+                      {getLabel(item)}
+                      <ChevronRight className="h-3 w-3 opacity-40 -rotate-90" />
+                    </Link>
+                  )}
+                </div>
+              );
+            })}
           </nav>
         </div>
 
